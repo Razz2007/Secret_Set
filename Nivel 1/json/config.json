@@ -1,0 +1,18 @@
+{
+    "blocks": [
+        { "id": "block1", "image": "./images/1.png" },
+        { "id": "block2", "image": "./images/2.png" },
+        { "id": "block3", "image": "./images/3.png" },
+        { "id": "block4", "image": "./images/4.png" },
+        { "id": "block5", "image": "./images/5.png" },
+        { "id": "block6", "image": "./images/6.png" },
+        { "id": "block7", "image": "./images/7.png" },
+        { "id": "block8", "image": "./images/8.png" },
+        { "id": "block9", "image": "./images/9.png" }
+    ],
+    "actions": {
+        "nextLevelMessage": "Cargando el siguiente nivel...",
+        "mainMenuMessage": "Volviendo al menú principal...",
+        "retryMessage": "Reiniciando el juego..."
+    }
+}

@@ -1,0 +1,128 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 50px;
+    background: #0dc8bf;
+    background-image: url('../images/Fondos/Berlin\ PC.jpg'); /* Aquí va la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.drag {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 320px;
+    gap: 10px;
+    cursor: grab;
+}
+
+.drag .dragBox {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #0003;
+}
+
+.images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border: 3px solid #f2ff00; /* Añade un borde de 3px blanco */
+    border-radius: 5px; /* Redondea ligeramente las esquinas del borde */
+}
+
+.reset {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: none;
+    background: #fff;
+    color: #222;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.dropBox {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    background: #0003;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.modal p {
+    color: #555;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.modal-buttons button:hover {
+    background-color: #45a049;
+}
+
+button.reset {
+    margin-top: 20px;
+}

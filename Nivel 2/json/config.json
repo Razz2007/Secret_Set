@@ -1,0 +1,93 @@
+{
+    "gameSettings": {
+      "timeLimit": 60,
+      "categories": [
+        {
+          "id": "fruits-bottle",
+          "name": "Conjunto de Frutas",
+          "items": [
+            {
+              "id": "apple",
+              "emoji": "🍎",
+              "name": "Manzana"
+            },
+            {
+              "id": "banana",
+              "emoji": "🍌",
+              "name": "Plátano"
+            },
+            {
+              "id": "orange",
+              "emoji": "🍊",
+              "name": "Naranja"
+            },
+            {
+              "id": "grape",
+              "emoji": "🍇",
+              "name": "Uva"
+            },
+            {
+              "id": "strawberry",
+              "emoji": "🍓",
+              "name": "Fresa"
+            }
+          ]
+        },
+        {
+          "id": "cars-bottle",
+          "name": "Conjunto de Carros",
+          "items": [
+            {
+              "id": "car",
+              "emoji": "🚗",
+              "name": "Carro"
+            },
+            {
+              "id": "truck",
+              "emoji": "🚚",
+              "name": "Camión"
+            },
+            {
+              "id": "bus",
+              "emoji": "🚌",
+              "name": "Autobús"
+            },
+            {
+              "id": "taxi",
+              "emoji": "🚕",
+              "name": "Taxi"
+            },
+            {
+              "id": "motorcycle",
+              "emoji": "🏍️",
+              "name": "Motocicleta"
+            }
+          ]
+        }
+      ]
+    },
+    "messages": {
+      "timeUp": "¡Se acabó el tiempo! Intenta de nuevo.",
+      "wrongItem": "¡Elemento incorrecto! Coloca el elemento en el conjunto correcto.",
+      "nextLevel": "Cargando el siguiente nivel...",
+      "mainMenu": "Volviendo al menú principal..."
+    },
+    "modalContent": {
+      "title": "¡Felicidades!",
+      "message": "Has completado el juego. ¿Qué te gustaría hacer?",
+      "buttons": [
+        {
+          "text": "Siguiente Nivel",
+          "action": "nextLevel"
+        },
+        {
+          "text": "Menú Principal",
+          "action": "mainMenu"
+        },
+        {
+          "text": "Reintentar",
+          "action": "retry"
+        }
+      ]
+    }
+  }

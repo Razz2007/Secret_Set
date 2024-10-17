@@ -41,9 +41,36 @@
                 <img src="./imgs/3.jpg" alt="Avatar de Terrenecitor087">
                 <span class="amigo-name">Terrenecitor087</span>
                 <span class="status offline">Desconectado</span>
+                <img class="eliminar" src="./imgs/eliminar.png" alt="">
             </div>
         </div>
     </div>
+
+    <!-- Modal para añadir amigos -->
+    <div id="addFriendModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Añadir Amigos</h2>
+            <div class="search-container">
+                <input type="text" id="searchFriend" placeholder="Buscar amigo...">
+                <button id="searchBtn">Buscar</button>
+            </div>
+            <ul id="searchResults">
+                <!-- Resultados de búsqueda aquí -->
+            </ul>
+        </div>
+    </div>
+
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeRequestModal()">&times;</span>
+            <h2>Solicitudes de Amistad</h2>
+            <ul id="request-list"></ul>
+        </div>
+    </div>
+    
+      
+
 
     <footer>
         <p>© 2024 <b>Secret Set</b> - Todos los Derechos Reservados</p>

@@ -16,6 +16,13 @@ body {
     font-family: Arial, sans-serif;
     position: relative; /* Para que los elementos dentro puedan posicionarse */
 }
+.eliminar {
+    position: absolute;
+    right: 120px; /* Cambiado de 100px a 30px para moverlo más a la izquierda */
+    top: 15px; /* Añadido para ajustar la altura si es necesario */
+    width: 20px; /* Ajusta el tamaño del ícono si lo deseas */
+    cursor: pointer;
+}
 
 .solicitud-container {
     position: absolute;
@@ -57,6 +64,7 @@ body {
     font-size: 14px;
     display: flex;
     align-items: center;
+    margin-left: 280px;
 }
 
 .add-friend-btn:hover {
@@ -189,4 +197,135 @@ footer p {
 .close:hover {
     color: #ff0000;
 }
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
+.modal-content {
+    background-color: white;
+    margin: 2% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo del input de búsqueda */
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#searchFriend {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#searchBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#searchResults {
+    list-style-type: none;
+    padding: 0;
+}
+
+#searchResults li {
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#searchResults li button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.friend-requests {
+    width: 300px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .friend-requests h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  #request-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #request-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  button.aceptar, button.rechazar {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button.rechazar {
+    background-color: red;
+  }
+  
+  button.aceptar:hover {
+    background-color: #45a049;
+  }
+  
+  button.rechazar:hover {
+    background-color: #ff4d4d;
+  }
+  
