@@ -1,0 +1,192 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../imgs/Fondos/Dubai\ Menu\ Cel.jpg);
+}
+
+/* Sección de amigos */
+.friends-section {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    border-radius: 15px;
+    padding: 60px;
+    padding-top: 40px; /* Ajusta el padding-top para que todo el contenido suba */
+    width: 380px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    position: relative; /* Para que los elementos dentro puedan posicionarse */
+}
+
+.solicitud-container {
+    position: absolute;
+    top: 90px;
+    right: 70px;
+}
+
+.solicitud {
+    width: 48px;
+    height: 68px;
+    cursor: pointer;
+}
+/* Posicionar el ícono de agregar amigos en la esquina superior derecha */
+.add-friend-icon-container {
+    position: absolute;
+    top: 105px;
+    right: 120px;
+}
+
+.add-friend-icon {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+/* Botón para agregar amigos */
+.add-friend {
+    display: flex;
+    justify-content: flex-end; /* Alinear a la derecha */
+    margin-bottom: 15px;
+}
+
+.add-friend-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.add-friend-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Título */
+.friends-section h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Lista de amigos */
+.titulo {
+    text-align: center;
+    margin-top: 10px; /* El título se posiciona más arriba */
+    margin-bottom: 40px; /* Aumenta el espacio entre el título y el contenido de amigos */
+    font-size: 24px;
+}
+
+/* Lista de amigos */
+.friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 70px; /* Agrega espacio extra para que los amigos estén más abajo */
+}
+
+/* Estilo de cada amigo */
+.friend {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Avatar de cada amigo */
+.friend img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Nombre del amigo */
+.amigo-name {
+    font-size: 18px;
+    margin-right: auto;
+}
+
+/* Estado del amigo (conectado, en partida, desconectado) */
+.status {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    right: 10px;
+    top: 38px;
+}
+
+/* Colores para los diferentes estados */
+.online {
+    background-color: green;
+    color: white;
+}
+
+.in-game {
+    background-color: red;
+    color: white;
+}
+
+.offline {
+    background-color: gray;
+    color: white;
+}
+
+/* Botones de acción (Invitar) */
+.invitar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    top: 7px;
+}
+
+.invitar:hover {
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Cerrar sección (botón X) */
+.close {
+    color: #6d006c;
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+

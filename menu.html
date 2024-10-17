@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Bienvenida Premium</title>
+    <link rel="stylesheet" href="./css/menu.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="language-selector">
+        <button class="language-btn">
+            Es <i class="arrow-down"></i>
+        </button>
+        <div class="accordion-content">
+            <button>Es</button>
+            <button>En</button>
+        </div>
+    </div>
+
+    <h1 class="welcome">Bienvenido <span><?php echo $user['nombre_user']; ?></span></h1>
+
+    <div class="menu">
+        <a href="./modos de juegos.html" class="btn">Inicio</a>
+        <a href="#" class="btn" id="configBtn">Configuración</a>
+        <a href="amigos.html" class="btn">Amigos</a> <!-- Redirige a amigos.html -->
+        <a href="#" class="btn">Mi perfil</a>
+    </div>
+
+    <!-- Modal de Configuración -->
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Música</h2>
+
+            <label for="masterVolume">Volumen Maestro:</label>
+            <div class="button-container">
+                <button id="turnOffBtn">Apagar Música y Efectos</button>
+                <button id="turnOnBtn">Encender Música y Efectos</button>
+            </div>
+
+            <label for="effectsVolume">Volumen de Efectos:</label>
+            <input type="range" id="effectsVolume" min="0" max="100" value="50">
+            <p>Volumen de efectos actual: <span id="effectsValue">50</span></p>
+
+            <label for="musicVolume">Volumen de Música:</label>
+            <input type="range" id="musicVolume" min="0" max="100" value="50">
+            <p>Volumen de música actual: <span id="musicValue">50</span></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 <b>Secret Set</b> - Todos los Derechos Reservados</p>
+    </footer>
+
+    <audio id="efectoAudio" src="musica/Bad Bunny - Soy Peor (1).mp3" loop></audio>
+    <audio id="musicaAudio" src="musica/cuernu.mp3" loop></audio>
+
+    <script src="./js/menu.js"></script>
+    
+</body>
+</html>
