@@ -86,7 +86,7 @@ function mainMenu() {
     closeModal();
     alert(window.mainMenuMessage);
     // Lógica para volver al menú principal
-    window.location.href = '../modos de juegos.html';
+    window.location.href = '../modos de juego.html';
 }
 
 function retry() {

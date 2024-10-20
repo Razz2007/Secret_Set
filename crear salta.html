@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Sala</title>
+    <link rel="stylesheet" href="./css/crear salta.css">
+</head>
+<body>
+
+    <a href="./unirse o crear salta.html" class="back-arrow">
+        <img src="./imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img">
+    </a>
+
+    <h1 class="title">Crear Sala</h1> 
+    
+    <div class="container">
+        <h2>Jugadores</h2>
+        <div class="counter">
+            <button onclick="changePlayers(-1)">-</button>
+            <span id="players">20</span>
+            <button onclick="changePlayers(1)">+</button>
+        </div>
+
+        <h2>Rondas</h2>
+        <div class="counter">
+            <button onclick="changeRounds(-1)">-</button>
+            <span id="rounds">5</span>
+            <button onclick="changeRounds(1)">+</button>
+        </div>
+
+        <h2>Mapas</h2>
+        <select id="mapSelect">
+            <option value="">Selecciona un mapa</option>
+            <option value="Nueva York">Nueva York</option>
+            <option value="Los Ángeles">Los Ángeles</option>
+            <option value="Miami">Miami</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Las Vegas">Las Vegas</option>
+            <option value="Londres">Londres</option>
+            <option value="París">París</option>
+            <option value="Roma">Roma</option>
+            <option value="Berlín">Berlín</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Ámsterdam">Ámsterdam</option>
+            <option value="Viena">Viena</option>
+            <option value="Praga">Praga</option>
+            <option value="Ciudad de México">Ciudad de México</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="São Paulo">São Paulo</option>
+            <option value="Río de Janeiro">Río de Janeiro</option>
+            <option value="Bogotá">Bogotá</option>
+            <option value="Medellín">Medellín</option>
+        </select>
+
+        <button id="resetBtn" onclick="resetValues()">Restablecer valores predeterminados</button>
+        <button id="randomBtn" onclick="setRandom()">Aleatorio</button>
+
+        <button id="createRoom">Crear Sala</button>
+    </div>
+
+    <footer>
+        <p>© 2024 <b>Secret Set</b> - Todos los Derechos Reservados</p>
+    </footer>
+
+    <script src="./js/crear sala.js"></script>
+</body>
+</html>
