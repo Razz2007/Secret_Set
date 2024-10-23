@@ -1,24 +1,54 @@
 /* Estilo general del cuerpo */
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url(../imgs/Fondos/Dubai\ Menu\ Cel.jpg);
+    background-image: url(../imgs/Fondos/New\ York\ PC.jpg);
+    background-size: cover;
 }
 
-/* Sección de amigos */
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.contenedor {
+	width: 380px;
+	height: 320px;
+	overflow: auto;
+	border-radius: 4px;
+}
+
+/* Scroll Personalizado */
+
+.contenedor::-webkit-scrollbar {
+	width: 7px;
+}
+
+.contenedor::-webkit-scrollbar-thumb {
+	background: linear-gradient(322deg, #00d5ff 50%, rgb(172 0 255 / 90%) 50%);
+	border-radius: 5px;
+}
+
 .friends-section {
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
     padding: 60px;
-    padding-top: 40px; /* Ajusta el padding-top para que todo el contenido suba */
+    padding-top: 40px;
     width: 380px;
     margin: 0 auto;
     color: #ffffff;
-    font-family: Arial, sans-serif;
-    position: relative; /* Para que los elementos dentro puedan posicionarse */
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    animation: borderGlow 3s infinite;
 }
 .eliminar {
     position: absolute;
-    right: 120px; /* Cambiado de 100px a 30px para moverlo más a la izquierda */
+    right: 120px; 
     top: 15px; /* Añadido para ajustar la altura si es necesario */
     width: 20px; /* Ajusta el tamaño del ícono si lo deseas */
     cursor: pointer;
@@ -98,10 +128,10 @@ body {
 .friend {
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
     border-radius: 10px;
     position: relative;
+    background-color: #1a1a1a;
 }
 
 /* Avatar de cada amigo */
@@ -112,7 +142,6 @@ body {
     margin-right: 10px;
 }
 
-/* Nombre del amigo */
 .amigo-name {
     font-size: 18px;
     margin-right: auto;
@@ -129,7 +158,6 @@ body {
     top: 38px;
 }
 
-/* Colores para los diferentes estados */
 .online {
     background-color: green;
     color: white;
@@ -144,8 +172,32 @@ body {
     background-color: gray;
     color: white;
 }
+.accept-request{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    left: 400px;
+    font-size: 12px;
+    top: 7px;
+    
+}
+.reject-request{
+    background-color: #ee490e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    left: 395px;
+    font-size: 12px;
+    top: 40px; 
+}
 
-/* Botones de acción (Invitar) */
 .invitar {
     background-color: #28a745;
     color: white;
@@ -163,7 +215,6 @@ body {
     opacity: 0.8;
 }
 
-/* Footer */
 footer {
     position: absolute;
     bottom: 10px;
@@ -183,7 +234,6 @@ footer p {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Cerrar sección (botón X) */
 .close {
     color: #6d006c;
     font-size: 50px;
@@ -197,33 +247,114 @@ footer p {
 .close:hover {
     color: #ff0000;
 }
-/* Estilos para el modal */
+
 .modal {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background-color: white;
-    margin: 2% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+    margin: 10% auto;
+    padding: 25px;
+    width: 90%;
     max-width: 500px;
+    border-radius: 15px;
+    position: relative;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: borderGlow 3s infinite;
+    border: 2px solid transparent;
+}
+
+@keyframes borderGlow {
+    0% {
+        border-color: #007bff;
+        box-shadow: 0 0 15px #007bff;
+    }
+    50% {
+        border-color: #00ff88;
+        box-shadow: 0 0 25px #00ff88;
+    }
+    100% {
+        border-color: #007bff;
+        box-shadow: 0 0 15px #007bff;
+    }
+}
+
+.modal-content h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#searchFriend {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+#searchFriend:focus {
+    outline: none;
+    border-color: #00c2ff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.2);
+}
+
+/* Botón de búsqueda mejorado */
+#searchBtn {
+    background: linear-gradient(45deg, #00c2ff, #0056f7);
+    color: white;
+    border: none;
+    padding: 12px 30px;
     border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 194, 255, 0.3);
+}
+
+#searchBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 194, 255, 0.4);
+    background: linear-gradient(45deg, #00d4ff, #0066ff);
 }
 
 .close-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg);
+    color: #ff4444;
 }
 
 .close-modal:hover,
@@ -240,34 +371,18 @@ footer p {
     margin-bottom: 20px;
 }
 
-#searchFriend {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#searchBtn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 #searchResults {
     list-style-type: none;
     padding: 0;
 }
 
 #searchResults li {
-    background-color: #f1f1f1;
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.3);
     align-items: center;
 }
 
@@ -303,7 +418,7 @@ footer p {
     align-items: center;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }

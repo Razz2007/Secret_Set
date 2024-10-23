@@ -20,7 +20,6 @@ body {
     padding: 20px;
 }
 
-/* Estilo del título */
 .welcome {
     font-size: 2.5em;
     font-weight: 800;
@@ -41,7 +40,6 @@ body {
     width: 100%;
 }
 
-/* Botones */
 .btn {
     background: linear-gradient(145deg, #6a0dad, #8b5fbf);
     border: 3px solid #ffd700;
@@ -69,7 +67,6 @@ body {
 }
 
 .btn:before {
-    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -168,7 +165,6 @@ body {
     transform: translateY(0);
 }
 
-/* Footer */
 footer {
     position: absolute;
     bottom: 10px;
@@ -188,7 +184,6 @@ footer p {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -197,84 +192,121 @@ footer p {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background: linear-gradient(145deg, #6c046c, #ffdd66);
-    padding: 50px;
-    border-radius: 20px;
-    max-width: 90%;
+    background: linear-gradient(165deg, #1a1a2e 0%, #16213e 100%);
+    border: 3px solid #6a0dad;
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 500px;
+    width: 90%;
     text-align: center;
-    color: #000000;
-    box-shadow: 0 0px 100px rgba(255, 0, 255, 0.7);
+    color: #ffffff;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+    position: relative;
+    animation: modalAppear 0.3s ease-out;
+}
+.modal-content h2 {
+    color: #ffd700;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .close {
-    color: #6d006c;
-    font-size: 50px;
-    font-weight: bold;
     position: absolute;
-    top: 110px;
-    right: 370px;
+    top: 20px;
+    right: 25px;
+    font-size: 35px;
+    color: #ffd700;
     cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .close:hover {
-    color: #ff0000;
+    color: #ffffff;
+    background: rgba(255, 215, 0, 0.3);
+    transform: rotate(90deg);
 }
-
 input[type="range"] {
+    -webkit-appearance: none;
     width: 100%;
-    appearance: none;
     height: 8px;
-    background: #004393;
+    background: linear-gradient(90deg, #00ffdb 50%, rgb(172 0 255 / 90%) 50%);
+    border-radius: 5px;
     outline: none;
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
+    margin: 10px 0;
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    width: 20px;
-    height: 20px;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #9500ff;
     border-radius: 50%;
-    background: #550065;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
 }
 /* Botones más grandes y alineados uno al lado del otro */
 #turnOffBtn, #turnOnBtn {
-    background-color: #ff5555;
-    color: white;
-    padding: 10px 20px; /* Tamaño del botón ajustado */
+    padding: 10px 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     cursor: pointer;
-    margin: 5px;
-    transition: background-color 0.3s ease;
-    display: inline-block; /* Para que estén en línea */
-    font-size: 1em; /* Texto más grande */
-    width: auto; /* Para evitar que se ajuste solo a texto */
-    text-align: center;
-    white-space:inherit; /* Para evitar que el texto se divida en varias líneas */
-    margin-top: 10px;
+    font-size: 01em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#turnOffBtn {
+    background: linear-gradient(45deg, #ff3366, #ff0033);
+    color: white;
+    border: 2px solid #ff3366;
 }
 
 #turnOnBtn {
-    background-color: #55ff55;
+    background: linear-gradient(45deg, #33ff66, #00cc33);
+    color: white;
+    border: 2px solid #33ff66;
 }
 
-#turnOffBtn:hover {
-    background-color: #ff0000;
+#turnOffBtn:hover, #turnOnBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-#turnOnBtn:hover {
-    background-color: #00ff00;
+#turnOffBtn:active, #turnOnBtn:active {
+    transform: translateY(1px);
 }
 
 /* Contenedor para los botones de música */
 .button-container {
     display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px 0;
 }

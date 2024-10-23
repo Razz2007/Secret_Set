@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Variables para configuración de música
     const configBtn = document.getElementById("configBtn");
     const configModal = document.getElementById("configModal");
     const closeBtn = document.querySelector(".close");
@@ -15,10 +16,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const turnOffBtn = document.getElementById("turnOffBtn");
     const turnOnBtn = document.getElementById("turnOnBtn");
 
+    // Configuración inicial de audio
+    musicaAudio.loop = true;
+    efectoAudio.loop = true;
+
+    // Cargar valores guardados o usar valores por defecto
+    const savedMusicVolume = localStorage.getItem('musicVolume') || 50;
+    const savedEffectsVolume = localStorage.getItem('effectsVolume') || 50;
+
+    musicVolume.value = savedMusicVolume;
+    effectsVolume.value = savedEffectsVolume;
+    musicValue.textContent = savedMusicVolume;
+    effectsValue.textContent = savedEffectsVolume;
+    
+    musicaAudio.volume = savedMusicVolume / 100;
+    efectoAudio.volume = savedEffectsVolume / 100;
+
     // Mostrar modal al hacer clic en Configuración
     configBtn.addEventListener("click", function() {
         configModal.style.display = "flex";
-        reproducirMusica(); // Reproduce música al abrir el modal
+        reproducirMusica();
         reproducirEfecto();
     });
 
@@ -38,6 +55,9 @@ document.addEventListener("DOMContentLoaded", function() {
         effectsValue.textContent = 0;
         musicaAudio.volume = 0;
         efectoAudio.volume = 0;
+        // Guardar valores
+        localStorage.setItem('musicVolume', 0);
+        localStorage.setItem('effectsVolume', 0);
     });
 
     // Encender música y efectos
@@ -47,8 +67,11 @@ document.addEventListener("DOMContentLoaded", function() {
         effectsVolume.value = 100;
         musicValue.textContent = 100;
         effectsValue.textContent = 100;
-        musicaAudio.volume = 1; // 1 es el 100% del volumen
-        efectoAudio.volume = 1; // 1 es el 100% del volumen
+        musicaAudio.volume = 1;
+        efectoAudio.volume = 1;
+        // Guardar valores
+        localStorage.setItem('musicVolume', 100);
+        localStorage.setItem('effectsVolume', 100);
         musicaAudio.play();
         efectoAudio.play();
     });
@@ -56,39 +79,47 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para reproducir los efectos y música al iniciar
     function reproducirEfecto() {
         efectoAudio.volume = effectsVolume.value / 100;
-        efectoAudio.play();
+        efectoAudio.play().catch(error => {
+            console.log("Error al reproducir efecto:", error);
+        });
     }
 
     function reproducirMusica() {
         musicaAudio.volume = musicVolume.value / 100;
-        musicaAudio.play();
+        musicaAudio.play().catch(error => {
+            console.log("Error al reproducir música:", error);
+        });
     }
+
+    // Intentar reproducir automáticamente al cargar la página
+    reproducirMusica();
+    reproducirEfecto();
+
+    // Intentar reproducir automáticamente cuando la página ha terminado de cargar
+    window.addEventListener('load', () => {
+        reproducirMusica();
+        reproducirEfecto();
+    });
 
     // Actualización de volumen en tiempo real
     effectsVolume.addEventListener("input", function() {
         effectsValue.textContent = effectsVolume.value;
         efectoAudio.volume = effectsVolume.value / 100;
+        localStorage.setItem('effectsVolume', effectsVolume.value);
     });
 
     musicVolume.addEventListener("input", function() {
         musicValue.textContent = musicVolume.value;
         musicaAudio.volume = musicVolume.value / 100;
+        localStorage.setItem('musicVolume', musicVolume.value);
     });
-});
 
-
-//Funcion Idiomas
-document.addEventListener("DOMContentLoaded", function() {
-    // Selecciona el botón de idioma y el contenido desplegable
+    // Funciones para el selector de idioma
     const languageBtn = document.querySelector(".language-btn");
     const accordionContent = document.querySelector(".accordion-content");
 
-    // Añade un event listener para cuando se haga clic en el botón
     languageBtn.addEventListener("click", function() {
-        // Alterna la clase 'active' en el botón para rotar el icono
         languageBtn.classList.toggle("active");
-
-        // Alterna la visibilidad del menú desplegable
         if (accordionContent.style.display === "block") {
             accordionContent.style.display = "none";
         } else {
@@ -103,5 +134,14 @@ document.addEventListener("DOMContentLoaded", function() {
             languageBtn.classList.remove("active");
         }
     });
+
+    // Agregar evento al botón "Inicio" para navegar a modos de juego
+    const inicioBtn = document.querySelector(".menu a[href='./modos de juego.html']");
+    if (inicioBtn) {
+        inicioBtn.addEventListener("click", function(event) {
+            event.preventDefault();
+            window.location.href = './modos de juego.html';
+        });
+    }
 });
 

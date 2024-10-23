@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amigos - Secret Set</title>
     <link rel="stylesheet" href="./css/amigos.css">
 </head>
-<body>
 
-    <!-- Sección de Amigos -->
+<body>
     <div class="friends-section">
-        <!-- Ícono de agregar amigos en la esquina superior derecha -->
         <div class="add-friend-icon-container">
             <img src="./imgs/agregar_usuario.png" alt="Agregar amigo" class="add-friend-icon">
         </div>
         <div class="solicitud-container">
-            <img src="./imgs/solicitud.png" alt="Agregar amigo" class="solicitud">
+            <img src="./imgs/solicitud.png" alt="Solicitudes de amistad" class="solicitud" id="openSolicitudModal">
         </div>
 
         <h1 class="titulo">Amigos</h1>
@@ -23,27 +22,30 @@
         <div class="back-button">
             <a href="menu.html"><span class="close">&times;</span></a>
         </div>
-
+<div class="contenedor">
         <div class="friends-list">
             <div class="friend">
                 <img src="./imgs/1.jpg" alt="Avatar de Kekito2009">
                 <span class="amigo-name">Kekito2009</span>
                 <span class="status online">Conectado</span>
                 <button class="invitar">Invitar</button>
+                <img class="eliminar" src="./imgs/eliminar.png" alt="Eliminar">
             </div>
             <div class="friend">
                 <img src="./imgs/2.jpg" alt="Avatar de Manolita800">
                 <span class="amigo-name">Manolita800</span>
                 <span class="status in-game">En partida</span>
                 <button class="invitar">Invitar</button>
+                <img class="eliminar" src="./imgs/eliminar.png" alt="Eliminar">
             </div>
             <div class="friend">
                 <img src="./imgs/3.jpg" alt="Avatar de Terrenecitor087">
                 <span class="amigo-name">Terrenecitor087</span>
                 <span class="status offline">Desconectado</span>
-                <img class="eliminar" src="./imgs/eliminar.png" alt="">
+                <img class="eliminar" src="./imgs/eliminar.png" alt="Eliminar">
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Modal para añadir amigos -->
@@ -61,23 +63,23 @@
         </div>
     </div>
 
-    <div id="requestModal" class="modal">
+    <!-- Modal de solicitudes de amistad -->
+    <div id="solicitudModal2" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeRequestModal()">&times;</span>
-            <h2>Solicitudes de Amistad</h2>
+            <span class="close-modal">&times;</span>
+            <h3>Solicitudes de Amistad</h3>
             <ul id="request-list"></ul>
         </div>
     </div>
-    
-      
-
 
     <footer>
         <p>© 2024 <b>Secret Set</b> - Todos los Derechos Reservados</p>
     </footer>
-
+    
+    <audio id="efectoAudio" src="./musica/Bad Bunny - Soy Peor (1).mp3" preload="auto"></audio>
+    <audio id="musicaAudio" src="./musica/cuernu.mp3" preload="auto"></audio>
+    <script src="js/audioManager.js"></script>
     <script src="./js/amigos.js"></script>
 </body>
 </html>
-
 
