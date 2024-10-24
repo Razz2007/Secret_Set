@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return AudioManager.instance;
             }
             AudioManager.instance = this;
-            this.musicaAudio = new Audio('./musica/cuernu.mp3');
+            this.musicaAudio = new Audio('./musica/Efectos.mp3');
             this.efectoAudio = new Audio('./musica/fondo.mp3');  
             // Configuración inicial
             this.musicaAudio.loop = true;
