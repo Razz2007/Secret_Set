@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             AudioManager.instance = this;
             this.musicaAudio = new Audio('./musica/cuernu.mp3');
-            this.efectoAudio = new Audio('./musica/Bad Bunny - Soy Peor (1).mp3');  
+            this.efectoAudio = new Audio('./musica/fondo.mp3');  
             // Configuración inicial
             this.musicaAudio.loop = true;
             this.efectoAudio.loop = true;    
