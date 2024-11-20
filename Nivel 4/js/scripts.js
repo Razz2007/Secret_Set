@@ -168,7 +168,7 @@ function restartGame() {
 // Funciones de navegación
 
 function goToMenu() {
-    window.location.href = '../modos de juego/modos de juego.html';
+    window.location.href = '../mapas/mapa4.html';
 }
 
 // Inicialización del juego
