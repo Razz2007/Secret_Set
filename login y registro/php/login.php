@@ -48,7 +48,7 @@ if ($user) {
 
     echo '<script>
         alert("Inicio de sesión exitoso. Bienvenido ' . $user['nombre_user'] . '");
-        window.location = "../../Menu/menu.php"; // Redirige a la página principal
+        window.location = "../../Menu/menu.html"; // Redirige a la página principal
     </script>';
 } else {
     // Si no es exitoso, mostramos un mensaje de error y redirigimos al formulario de login

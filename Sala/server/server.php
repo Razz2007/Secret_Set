@@ -26,12 +26,25 @@ class Chat implements MessageComponentInterface
 
     public function onMessage(ConnectionInterface $from, $msg)
     {
+        // Decodificar el mensaje recibido
         $data = json_decode($msg, true);
 
-        foreach ($this->clients as $client) {
-            if ($from !== $client) {
-                $client->send(json_encode(['message' => $data['message']]));
+        // Asegurarse de que contiene tanto el usuario como el mensaje
+        if (isset($data['user']) && isset($data['message'])) {
+            $user = $data['user'];
+            $message = $data['message'];
+
+            // Enviar el mensaje a todos los clientes excepto al remitente
+            foreach ($this->clients as $client) {
+                if ($from !== $client) {
+                    $client->send(json_encode([
+                        'user' => $user,
+                        'message' => $message
+                    ]));
+                }
             }
+
+            echo "Mensaje enviado por {$user}: {$message}\n";
         }
     }
 
@@ -57,4 +70,5 @@ $server = IoServer::factory(
     ),
     8080
 );
+
 $server->run();
