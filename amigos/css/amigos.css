@@ -452,3 +452,9 @@ footer p {
     background-color: #ff4d4d;
   }
   
+
+  .gif {
+    width: 200px;
+    height: auto;
+    z-index: 100;
+  }

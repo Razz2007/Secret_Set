@@ -12,7 +12,7 @@
         <div class="loader"></div>
         <div class="loader-text">SECRET SET</div>
         <div class="gif">
-            <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
+            <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif">
         </div>
     </div>
     
@@ -114,17 +114,6 @@
         </div>
     </div>
     <script src="../js/levelManager.js"></script>
-    <script>
-        // Simulando el final del nivel 1
-        function finishLevel() {
-            // Desbloquear el nivel 2
-            localStorage.setItem('level2Unlocked', 'true');
-            localStorage.setItem('currentLevel', '2');  // Establecemos que el nivel 2 es el actual
-
-            // Redirigir al mapa
-            window.location.href = '../mapa/mapa.html';
-        }
-    </script>
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
     <script src="../js/audioManager.js"></script>

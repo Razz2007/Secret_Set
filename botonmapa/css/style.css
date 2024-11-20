@@ -56,78 +56,260 @@ body {
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 8px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    border: 5px solid rgba(255, 255, 255, 0.8);
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.4);
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
     z-index: 1;
-    animation: glow 1.5s infinite alternate;
 }
 
-@keyframes glow {
-    from {
-        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
-    }
-    to {
-        text-shadow: 2px 2px 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.4);
-    }
-}
-
-
-
-
-.buttons {
+/* Efecto de borde neón (reducido) */
+.title::before {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 40px;
-    z-index: 1;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 60, 60, 0.7),
+        rgba(255, 157, 0, 0.7),
+        rgba(255, 215, 0, 0.7),
+        rgba(0, 162, 255, 0.7),
+        rgba(0, 119, 255, 0.7),
+        rgba(255, 60, 60, 0.7)
+    );
+    border-radius: 17px;
+    z-index: -1;
+    animation: borderAnimation 4s linear infinite;
+    background-size: 400%;
+    filter: blur(3px);
+}
+
+/* Capa interior oscura */
+.title::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    z-index: -1;
+}
+
+/* Animación del borde */
+@keyframes borderAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Efecto de texto neón (reducido) */
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 4px #fff,
+            0 0 7px #fff,
+            0 0 14px #fff,
+            0 0 21px rgba(0, 255, 170, 0.7),
+            0 0 42px rgba(0, 255, 170, 0.5),
+            0 0 52px rgba(0, 255, 170, 0.4),
+            0 0 62px rgba(0, 255, 170, 0.3),
+            0 0 71px rgba(0, 255, 170, 0.2);
+    }
+    50% {
+        text-shadow: 
+            0 0 2px #fff,
+            0 0 4px #fff,
+            0 0 7px #fff,
+            0 0 13px rgba(0, 255, 170, 0.6),
+            0 0 25px rgba(0, 255, 170, 0.4),
+            0 0 35px rgba(0, 255, 170, 0.3),
+            0 0 45px rgba(0, 255, 170, 0.2),
+            0 0 55px rgba(0, 255, 170, 0.1);
+    }
+}
+
+/* Aplicar las animaciones */
+.title {
+    animation: neonPulse 2.5s infinite;
+}
+
+/* Efecto de brillo alrededor (reducido) */
+.title {
+    box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.05),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Efecto hover adicional */
+.title:hover {
+    animation: neonPulse 1s infinite;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .title {
+        font-size: 40px;
+        padding: 15px 30px;
+        letter-spacing: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 30px;
+        padding: 10px 20px;
+        letter-spacing: 4px;
+    }
 }
 
 .button {
-    background: rgba(255, 255, 255, 0.7); /* Fondo blanco con 80% de opacidad */
-    padding: 30px;
-    text-align: center;
-    border-radius: 50px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 35px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
-    width: 150px;
-    height: 200px;
+    transition: all 0.4s ease;
+    position: relative;
+    width: 180px;
+    height: 220px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: none;
+    overflow: hidden;
+}
+
+/* Efecto de borde animado */
+.button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        45deg,
+        #ff3c3c,
+        #ff9d00,
+        #ffd700,
+        #00a2ff,
+        #0077ff
+    );
+    border-radius: 32px;
+    z-index: -1;
+    animation: borderAnimation 4s linear infinite;
+    background-size: 400%;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 27px;
+    z-index: -1;
+}
+
+@keyframes borderAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .button:hover {
-    transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.9); /* Aumentar la opacidad al hacer hover */
+    transform: translateY(-5px);
 }
 
-.icon {
-    width: 160px; /* Ampliar el tamaño de los íconos */
-    height: 160px;
-    border-radius: 50px; /* Bordes redondeados */
+.button:hover::before {
+    animation: borderAnimation 2s linear infinite;
+}
+
+.button .icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover .icon {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .button span {
-    margin-top: auto; /* Empuja el texto hacia la parte inferior */
-    font-size: 18px;
-    font-weight: bold;
-    color: #444; /* Cambia el color a un gris oscuro */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Añade una sombra sutil */
-    letter-spacing: 1px; /* Espaciado entre letras */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    transition: color 0.3s; /* Transición suave al cambiar el color */
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
 }
 
-.button:hover span {
-    color: #222; /* Cambia a un tono más oscuro al hacer hover */
+/* Animación de línea debajo del texto */
+.button span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        #ff3c3c,
+        #ff9d00,
+        #ffd700,
+        #00a2ff
+    );
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
+.button:hover span::after {
+    width: 100%;
+}
 
+/* Efecto de brillo alrededor del botón */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 165, 0, 0.3),
+                    0 0 40px rgba(255, 165, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 165, 0, 0.5),
+                    0 0 60px rgba(255, 165, 0, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 165, 0, 0.3),
+                    0 0 40px rgba(255, 165, 0, 0.1);
+    }
+}
 
+.button {
+    animation: glow 3s infinite;
+}
+
+.gif {
+    width: 200px;
+    height: auto;
+    z-index: 100;
+  }

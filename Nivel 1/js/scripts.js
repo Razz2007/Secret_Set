@@ -173,7 +173,7 @@ function nextLevel() {
 
 function mainMenu() {
     closeModal('completionModal');
-    window.location.href = '../mapa/mapa.html';
+    window.location.href = '../mapas/mapa2.html';
 }
 
 function retry() {

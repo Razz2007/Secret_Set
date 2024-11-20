@@ -290,3 +290,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: translateY(-50%);
     pointer-events: none;
 }
+
+.gif {
+    width: 200px;
+    height: auto;
+    z-index: 100;
+  }

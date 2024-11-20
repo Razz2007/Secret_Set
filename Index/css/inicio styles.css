@@ -242,3 +242,9 @@ body {
 .loader-container.hidden {
     display: none;
 }
+
+.gif {
+    width: 200px;
+    height: auto;
+    z-index: 100;
+  }

@@ -176,7 +176,7 @@ function nextLevel() {
 function mainMenu() {
     closeModal();
     // Redirigir al menú principal, asegurándote de que la ruta sea correcta
-    window.location.href = "../mapa/mapa.html"; // Ruta al archivo del menú principal
+    window.location.href = "../mapas/mapa3.html"; // Ruta al archivo del menú principal
 }
 
 function retry() {

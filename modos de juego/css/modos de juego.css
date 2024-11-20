@@ -144,3 +144,9 @@ footer p {
 
 
 
+.gif {
+    width: 200px;
+    height: auto;
+    z-index: 100;
+  }
+

@@ -1,6 +1,6 @@
 {
   "configuracionJuego": {
-    "emojis": ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼"],
+    "emojis": ["🌍", "🏙️", "🌆", "🗽", "🗼", "🚖", "✈️", "🏝️"],
     "tiempoTotal": 190,
     "umbralesTrofeos": {
       "tresTrofeos": 66,

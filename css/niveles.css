@@ -1,0 +1,244 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+body {
+    font-family: 'Russo One', sans-serif;
+    background-image: url(../imgs/Fondos/Los\ Angeles\ PC.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Título con efecto neón */
+.title-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Título con efecto neón más sutil */
+.neon-title {
+    color: #fff;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 2px #fff,
+        0 0 4px #fff,
+        0 0 6px #00f,
+        0 0 8px #00f;
+    animation: neon 2s ease-in-out infinite alternate;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 40px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+/* Animación de neón más sutil */
+@keyframes neon {
+    from {
+        text-shadow: 
+            0 0 2px #fff,
+            0 0 4px #fff,
+            0 0 6px #00f,
+            0 0 8px #00f;
+    }
+    to {
+        text-shadow: 
+            0 0 1px #fff,
+            0 0 2px #fff,
+            0 0 3px #00f,
+            0 0 4px #00f;
+    }
+}
+
+/* También podemos hacer la animación más lenta */
+.neon-title {
+    animation-duration: 3s;
+}
+
+/* Contenedor principal */
+.main-container {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+    backdrop-filter: blur(5px);
+    display: flex;  /* Añadido */
+    justify-content: center;  /* Añadido */
+    align-items: center;  /* Añadido */
+    min-height: 200px;  /* Asegura espacio vertical suficiente */
+}
+
+/* Botón de flecha */
+.parte-izquierda {
+    border: 4px solid #fff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(0, 0, 255, 0.8);
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.parte-izquierda:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.6);
+}
+
+.parte-izquierda i {
+    font-size: 35px;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Niveles */
+.niveles {
+    display: flex;  /* Esto ya lo tenías */
+    flex-direction: row;  /* Asegura disposición horizontal */
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;  /* Centra verticalmente */
+    gap: 40px;  /* Espacio entre niveles */
+    margin-top: 50px;
+    width: 100%;  /* Asegura que tome todo el ancho disponible */
+    flex-wrap: nowrap;  /* Evita que los elementos se envuelvan */
+}
+.nivel {
+    background: #1a1a2e;
+    border: 12px solid #9d4edd;
+    border-radius: 20px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.5),
+                inset 0 0 20px rgba(157, 78, 221, 0.3);
+    flex-shrink: 0;  /* Evita que los niveles se compriman */
+}
+
+
+.nivel:not(:first-child) {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.nivel h1 {
+    color: #c77dff;  /* Texto en morado más claro */
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(199, 125, 255, 0.7);
+}
+
+.nivel i {
+    color: #c77dff;
+    font-size: 2rem;
+}
+
+.nivel:hover {
+    transform: translateY(-15px) scale(1.1);
+    box-shadow: 
+        0 15px 30px rgba(157, 78, 221, 0.6),
+        0 0 30px rgba(157, 78, 221, 0.8),
+        inset 0 0 20px rgba(157, 78, 221, 0.4);
+    border-color: #b5179e;  /* Morado más intenso en hover */
+}
+
+
+.neon-title {
+    color: #fff;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 2px #fff,
+        0 0 4px #fff,
+        0 0 6px #9d4edd,
+        0 0 8px #9d4edd;
+    animation: neonPurple 2s ease-in-out infinite alternate;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 40px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+/* Animaciones */
+@keyframes neonPurple {
+    from {
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px #9d4edd,
+            0 0 40px #9d4edd,
+            0 0 80px #9d4edd;
+    }
+    to {
+        text-shadow: 
+            0 0 2px #fff,
+            0 0 5px #fff,
+            0 0 10px #9d4edd,
+            0 0 20px #9d4edd,
+            0 0 40px #9d4edd;
+    }
+}
+
+@keyframes pulseNeon {
+    0% {
+        box-shadow: 0 0 15px rgba(157, 78, 221, 0.3),
+                    inset 0 0 10px rgba(157, 78, 221, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(157, 78, 221, 0.5),
+                    inset 0 0 15px rgba(157, 78, 221, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(157, 78, 221, 0.3),
+                    inset 0 0 10px rgba(157, 78, 221, 0.2);
+    }
+}.back-arrow {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 2;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.6);   /* Fondo oscuro semitransparente */
+    padding: 8px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);  /* Borde blanco semitransparente */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Sombra alrededor */
+    transition: all 0.3s ease-in-out;  /* Suavizado de transiciones */
+}
+
+.back-arrow:hover {
+    background: rgba(255, 255, 255, 0.9);  /* Fondo blanco al hacer hover */
+    border: 2px solid rgba(0, 0, 0, 0.8);  /* Borde negro */
+    transform: scale(1.1);                 /* Efecto de escala */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6); /* Incrementar la sombra */
+}
+
+/* Estilo específico para la imagen de la flecha */
+.arrow-img {
+    width: 50px;        /* Tamaño más pequeño de la imagen */
+    height: 50px;
+    display: block;
+    transition: transform 0.3s ease-in-out;  /* Suavizado en la transformación */
+}
+
+.back-arrow:hover .arrow-img {
+    transform: rotate(-15deg);  /* Rotación ligera de la flecha al hacer hover */
+}
+
+
+.gif {
+    width: 200px;
+    height: auto;
+    z-index: 100;
+  }

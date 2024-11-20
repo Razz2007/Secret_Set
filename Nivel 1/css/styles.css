@@ -638,3 +638,14 @@ button.reset:active {
 .start-button:hover {
     background-color: #45a049;
 }
+
+.locked {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.gif {
+    width: 200px;
+    height: auto;
+    z-index: 100;
+  }
