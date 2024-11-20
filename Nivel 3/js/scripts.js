@@ -62,19 +62,31 @@ function initializeGame() {
 
     startTimer();
 }
-
 function createCard(value, index) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
         <div class="card-face front">${value}</div>
-        <div class="card-face back"></div>
+        <div class="card-face back">
+            <span>SECRET SET</span>
+            <!-- Esquinas naranjas -->
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+            <!-- Círculos decorativos -->
+            <div class="circle top-left"></div>
+            <div class="circle top-right"></div>
+            <div class="circle bottom-left"></div>
+            <div class="circle bottom-right"></div>
+        </div>
     `;
     card.dataset.value = value;
     card.dataset.index = index;
     card.addEventListener('click', () => flipCard(card));
     return card;
 }
+
 
 function flipCard(card) {
     if (flippedCards.length === 2 || flippedCards.includes(card) || card.classList.contains('matched')) {
@@ -158,4 +170,17 @@ function goToMenu() {
     winModal.style.display = 'none';
     loseModal.style.display = 'none';
     window.location.href = '../mapas/mapa4.html';
+}
+
+function restartGame() {
+    winModal.style.display = 'none';
+    loseModal.style.display = 'none';
+    showInstructions(); // Mostrar instrucciones al reiniciar el nivel actual
+    initializeGame();   // Reinicia el nivel desde el principio
+}
+
+function goToMenu() {
+    winModal.style.display = 'none';
+    loseModal.style.display = 'none';
+    window.location.href = '../mapas/mapa3.html'; // Redirige al menú principal del mapa 3
 }

@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="./css/loader.css">
 </head>
 <body>
-
     <div class="loader-container" id="loader">
         <div class="loader"></div>
         <div class="loader-text">SECRET SET</div>
         <div class="gif">
             <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
         </div>
-        
     </div>
-  
     
     <div class="game-container">
         <div class="header">
-            <div class="timer">Tiempo: <span id="time">60</span>s</div>
+            <div class="timer">Tiempo: <span id="time">10</span>s</div>
         </div>
-        <div class="grid" id="grid"></div>
+        <div class="grid" id="grid">
+            <!-- Aquí se integrarán las tarjetas dinámicamente -->
+        </div>
     </div>
+    
     <div class="modal" id="instructions-modal">
         <div class="modal-content">
             <h2>Cómo Jugar</h2>
@@ -53,6 +53,7 @@
             <button class="btn btn-primary" onclick="closeInstructions()">¡Empezar a Jugar!</button>
         </div>
     </div>
+
     <!-- Modal Victoria -->
     <div class="modal" id="win-modal">
         <div class="modal-content">
@@ -68,16 +69,17 @@
         </div>
     </div>
 
-    <!-- Modal Derrota -->
-    <div class="modal" id="lose-modal">
-        <div class="modal-content">
-            <h2>¡Tiempo Agotado!</h2>
-            <p class="p">No te rindas, ¡inténtalo de nuevo!</p>
-            <button class="btn btn-primary" onclick="restartGame()">Reintentar</button>
-            <button class="btn btn-secondary" onclick="goToMenu()">Menú Principal</button>
-        </div>
+   <!-- Modal Derrota -->
+<div id="lose-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h2>¡Tiempo agotado!</h2>
+        <p class="p">¿Qué deseas hacer?</p>
+        <button id="retry-button" onclick="restartGame()">Reintentar</button>
+        <button id="menu-button" onclick="goToMenu()">Menú principal</button>
     </div>
-    
+</div>
+
+
 
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
