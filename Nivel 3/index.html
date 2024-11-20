@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Clasificación</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/loader.css">
+</head>
+<body>
+
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+        <div class="loader-text">SECRET SET</div>
+        <div class="gif">
+            <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
+        </div>
+        
+    </div>
+  
+    
+    <div class="game-container">
+        <div class="header">
+            <div class="timer">Tiempo: <span id="time">60</span>s</div>
+        </div>
+        <div class="grid" id="grid"></div>
+    </div>
+    <div class="modal" id="instructions-modal">
+        <div class="modal-content">
+            <h2>Cómo Jugar</h2>
+            <div class="instructions-container">
+                <div class="instruction-item">
+                    <span class="instruction-icon">🎮</span>
+                    <p>Encuentra todos los pares de cartas coincidentes antes de que se acabe el tiempo</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">⏱️</span>
+                    <p>Tienes 190 segundos para completar el nivel</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">🏆</span>
+                    <p>Gana trofeos según el tiempo restante:
+                        <br>3 trofeos: >66% del tiempo
+                        <br>2 trofeos: >33% del tiempo
+                        <br>1 trofeo: completado
+                    </p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">💡</span>
+                    <p>Memoriza la ubicación de las cartas para encontrar las parejas más rápido</p>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="closeInstructions()">¡Empezar a Jugar!</button>
+        </div>
+    </div>
+    <!-- Modal Victoria -->
+    <div class="modal" id="win-modal">
+        <div class="modal-content">
+            <h2>¡Felicitaciones!</h2>
+            <div class="trophies">
+                <span class="trophy" id="trophy1">🏆</span>
+                <span class="trophy" id="trophy2">🏆</span>
+                <span class="trophy" id="trophy3">🏆</span>
+            </div>
+            <button class="btn btn-primary" onclick="nextLevel()">Siguiente Nivel</button>
+            <button class="btn btn-primary" onclick="restartGame()">Reintentar</button>
+            <button class="btn btn-secondary" onclick="goToMenu()">Menú Principal</button>
+        </div>
+    </div>
+
+    <!-- Modal Derrota -->
+    <div class="modal" id="lose-modal">
+        <div class="modal-content">
+            <h2>¡Tiempo Agotado!</h2>
+            <p class="p">No te rindas, ¡inténtalo de nuevo!</p>
+            <button class="btn btn-primary" onclick="restartGame()">Reintentar</button>
+            <button class="btn btn-secondary" onclick="goToMenu()">Menú Principal</button>
+        </div>
+    </div>
+    
+
+    <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
+    <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <script src="../js/audioManager.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/loader.js"></script>
+</body>
+</html>

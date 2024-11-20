@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos - Secret Set</title>
+    <link rel="stylesheet" href="./css/amigos.css">
+    <link rel="stylesheet" href="./css/loader.css">
+
+</head>
+<body>
+    <style>
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0; /* Add this line to hide the selector */
+            pointer-events: none; /* Add this line to disable interactions */
+        }
+
+        .language-selector select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+    </style>
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+        <div class="loader-text">SECRET SET</div>
+        <div class="gif">
+            <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
+        </div>
+        
+    </div>
+    <div class="friends-section">
+        <div class="add-friend-icon-container">
+            <img src="./imgs/agregar_usuario.png" alt="Agregar amigo" class="add-friend-icon">
+        </div>
+        <div class="solicitud-container">
+            <img src="./imgs/solicitud.png" alt="Solicitudes de amistad" class="solicitud" id="openSolicitudModal">
+        </div>
+
+        <h1 class="titulo" data-i18n="friendsTitle">Amigos</h1>
+
+        <div class="back-button">
+            <a href="../Menu/menu.php"><span class="close">&times;</span></a>
+        </div>
+        <div class="contenedor">
+            <div class="friends-list">
+                <div class="friend">
+                    <img src="./imgs/1.jpg" alt="Avatar de Kekito2009">
+                    <span class="amigo-name">Kekito2009</span>
+                    <span class="status online" data-i18n="statusOnline">Conectado</span>
+                    <button class="invitar" data-i18n="invite">Invitar</button>
+                    <img class="eliminar" src="./imgs/eliminar.png" alt="Eliminar">
+                </div>
+                <div class="friend">
+                    <img src="./imgs/2.jpg" alt="Avatar de Manolita800">
+                    <span class="amigo-name">Manolita800</span>
+                    <span class="status in-game" data-i18n="statusInGame">En partida</span>
+                    <button class="invitar" data-i18n="invite">Invitar</button>
+                    <img class="eliminar" src="./imgs/eliminar.png" alt="Eliminar">
+                </div>
+                <div class="friend">
+                    <img src="./imgs/3.jpg" alt="Avatar de Terrenecitor087">
+                    <span class="amigo-name">Terrenecitor087</span>
+                    <span class="status offline" data-i18n="statusOffline">Desconectado</span>
+                    <img class="eliminar" src="./imgs/eliminar.png" alt="Eliminar">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para añadir amigos -->
+    <div id="addFriendModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 data-i18n="addFriends">Añadir Amigos</h2>
+            <div class="search-container">
+                <input type="text" id="searchFriend" data-i18n-placeholder="searchFriend" placeholder="Buscar amigo...">
+                <button id="searchBtn" data-i18n="search">Buscar</button>
+            </div>
+            <ul id="searchResults">
+                <!-- Resultados de búsqueda aquí -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal de solicitudes de amistad -->
+    <div id="solicitudModal2" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 data-i18n="friendRequests">Solicitudes de Amistad</h3>
+            <ul id="request-list"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <p data-i18n="footerFriends">© 2024 <b>Secret Set</b> - Todos los Derechos Reservados</p>
+    </footer>
+
+    <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
+    <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <script src="../js/audioManager.js"></script>
+    <script src="../Menu/js/languajes1.js"></script>
+    <script src="js/amigos.js"></script>
+    <script src="js/loader.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+    

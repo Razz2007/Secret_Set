@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Set</title>
+    <link rel="stylesheet" href="css/menu.css">  <!-- Sin el punto inicial -->
+    <link rel="stylesheet" href="./css/loader.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="loader-container" id="loader">
+        <div class="loader"></div>
+        <div class="loader-text">SECRET SET</div>
+        <div class="gif">
+            <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
+        </div>
+</div>
+
+
+
+<h1 class="welcome" data-i18n="welcome">Bienvenido</h1>
+
+<div class="menu">
+    <a href="../modos de juego/modos de juego.html" class="btn" data-i18n="home">Inicio</a>
+    <a href="#" class="btn" id="configBtn" data-i18n="settings">Configuración</a>
+    <a href="../amigos/amigos.html" class="btn" data-i18n="friends">Amigos</a>
+    <a href="../perfil/perfil.html" class="btn" data-i18n="profile">Mi perfil</a>
+</div>
+
+<div id="configModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 data-i18n="musicSettings">Configuración de Música</h2>
+        <label for="masterVolume" data-i18n="masterVolume">Volumen Maestro:</label>
+        <div class="button-container">
+            <button id="turnOffBtn" data-i18n="turnOff">Apagar Música y Efectos</button>
+            <button id="turnOnBtn" data-i18n="turnOn">Encender Música y Efectos</button>
+        </div>
+        <label for="effectsVolume" data-i18n="effectsVolume">Volumen de Efectos:</label>
+        <input type="range" id="effectsVolume" min="0" max="100" value="50">
+        <p>Volumen de efectos actual: <span id="effectsValue">50</span></p>
+        <label for="musicVolume" data-i18n="musicVolume">Volumen de Música:</label>
+        <input type="range" id="musicVolume" min="0" max="100" value="50">
+        <p>Volumen de música actual: <span id="musicValue">50</span></p>
+    </div>
+</div>
+
+<footer>
+    <p data-i18n="footer">© 2024 Secret Set - Todos los Derechos Reservados</p>
+</footer>
+
+<audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
+<audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+
+<script src="./js/audioManager.js"></script>
+<script src="./js/menu.js"></script>
+<script src="./js/loader.js"></script>
+<script src="./js/languajes1.js"></script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

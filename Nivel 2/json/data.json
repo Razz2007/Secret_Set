@@ -1,0 +1,27 @@
+{
+    "missions": [
+        {
+            "description": "Encuentra la unión de frutas en Territorio A y B",
+            "operation": "union",
+            "sets": ["A", "B"],
+            "expected": ["apple", "banana", "orange", "pear"]
+        },
+        {
+            "description": "Encuentra la intersección entre Territorio B y C",
+            "operation": "intersection",
+            "sets": ["B", "C"],
+            "expected": ["banana"]
+        },
+        {
+            "description": "Selecciona los elementos de A que no están en C",
+            "operation": "difference",
+            "sets": ["A", "C"],
+            "expected": ["apple"]
+        }
+    ],
+    "territories": {
+        "A": ["apple", "banana", "orange"],
+        "B": ["banana", "pear", "grape"],
+        "C": ["banana", "kiwi", "apple"]
+    }
+}

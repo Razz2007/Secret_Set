@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <title>Juego de Conjuntos</title>
+        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/loader.css">
+</head>
+<body>
+        <div class="loader-container" id="loader">
+            <div class="loader"></div>
+            <div class="loader-text">SECRET SET</div>
+            <div class="gif">
+                <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
+            </div>
+        </div>
+        <div id="instructionsModal" class="modal">
+            <div class="modal-content">
+                <h2>¿Cómo Jugar?</h2>
+                <div class="instructions-container">
+                    <div class="instruction-item">
+                        <span class="instruction-icon">🎯</span>
+                        <p>Resuelve problemas de conjuntos seleccionando los números correctos según la operación pedida</p>
+                    </div>
+                    <div class="instruction-item">
+                        <span class="instruction-icon">🔄</span>
+                        <p>Haz clic en los números para seleccionarlos o deseleccionarlos de tu respuesta</p>
+                    </div>
+                    <div class="instruction-item">
+                        <span class="instruction-icon">👻</span>
+                        <p>Gana trofeos por cada respuesta correcta:
+                            <br>🏆 3 respuestas correctas: 3 trofeos
+                            <br>🏆 2 respuestas correctas: 2 trofeos
+                            <br>🏆 1 respuesta correcta: 1 trofeo
+                        </p>
+                    </div>
+                    <div class="instruction-item">
+                        <span class="instruction-icon">ℹ️</span>
+                        <p>Aprenderás sobre:
+                            <br>• Intersección (∩)
+                            <br>• Unión (∪)
+                            <br>• Diferencia (-)
+                        </p>
+                    </div>
+                </div>
+                <button class="modal-button" onclick="closeInstructions()">¡Empezar a Jugar!</button>
+            </div>
+        </div>
+        <div id="successModal" class="modal">
+            <div class="modal-content success-modal">
+                <h2>¡Fin del Juego!</h2>
+                <div class="modal-trophy" id="modalTrophies"></div>
+                <p id="successMessage"></p>
+                <div class="modal-buttons">
+                    <button class="modal-button menu-button" onclick="goToMenu()">Haz Terminado</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal de Reintento -->
+        <div id="retryModal" class="modal">
+            <div class="modal-content retry-modal">
+                <h2>¡Necesitas Practicar Más!</h2>
+                <div class="modal-trophy">😢</div>
+                <p>No has conseguido ningún trofeo. ¡No te rindas!</p>
+                <div class="modal-buttons">
+                    <button class="modal-button retry-button" onclick="restartGame()">Reintentar</button>
+                    <button class="modal-button menu-button" onclick="goToMenu()">Menú Principal</button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="game-container">
+            <div class="stats">
+                <div class="progress">Nivel: <span id="level">1</span></div>
+                <div>Correctas: <span id="correctCount">0</span>/3</div>
+            </div>
+            <div class="question" id="question"></div>
+            <div class="set-container">
+                <div class="set">
+                    <h3>Conjunto A</h3>
+                    <div id="setA"></div>
+                </div>
+                <div class="set">
+                    <h3>Conjunto B</h3>
+                    <div id="setB"></div>
+                </div>
+            </div>
+            <div id="answer" class="set">
+                <h3>Tu Respuesta</h3>
+                <div id="userAnswer"></div>
+            </div>
+            <button id="checkAnswer">Comprobar Respuesta</button>
+            <div id="feedback" class="feedback"></div>
+            
+            
+        </div>
+        <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
+        <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+        <script src="../js/audioManager.js"></script>
+        <script src="./js/scripts.js"></script>
+        <script src="./js/loader.js"></script>
+    </body>
+    </html>

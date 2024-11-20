@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Set</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/loader.css">
+</head>
+<body>
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+        <div class="loader-text">SECRET SET</div>
+        <div class="gif">
+            <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
+        </div>
+    </div>
+
+    <a href="../botonmapa/botonmapa.html" class="back-arrow">
+        <img src="./imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img">
+    </a>
+
+    <h1 class="title">MAPA NIVELES</h1>
+
+    <div class="container">
+        <div class="buttons">
+            <div class="button">
+                <a href="../Nivel 1/index.html">
+                    <img src="../imgs/bd98f16b242ae232e9a0262216c84feb.jpg" alt="Partida Local" class="icon">
+                </a>
+                <span data-i18n="localGame"></span>
+            </div>
+            <div class="button">
+                <a href="../Nivel 2/index.html">
+                    <img src="../imgs/dos.jpg" alt="Partida Local" class="icon">
+                </a>
+                <span data-i18n="localGame"></span>
+            </div>
+            <div class="button">
+                <a href="../Nivel 3/index.html">
+                    <img src="../imgs/tres.jpg" alt="Partida Local" class="icon">
+                </a>
+                <span data-i18n="localGame"></span>
+            </div>
+            <div class="button">
+                <a href="../Nivel 4/index.html">
+                    <img src="../imgs/cuatro.jpg" alt="Partida Local" class="icon">
+                </a>
+                <span data-i18n="localGame"></span>
+            </div>
+        </div>
+    </div>
+
+    <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
+    <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <script src="../js/audioManager.js"></script>
+    <script src="./js/levelManager.js"></script>
+    <script src="js/loader.js"></script>
+    <script>function initializeLevelMap() {
+        const levels = document.querySelectorAll('.button a');
+    
+        levels.forEach((levelLink, index) => {
+            const levelNumber = index + 1;
+            const isUnlocked = localStorage.getItem(`level${levelNumber}Unlocked`) === 'true';
+    
+            if (!isUnlocked && levelNumber > 1) {
+                // Desactivamos el enlace o añadimos el icono de bloqueo
+                levelLink.style.pointerEvents = 'none';
+                levelLink.classList.add('locked');
+    
+                // Opcional: Añadir superposición de bloqueo
+                const lockOverlay = document.createElement('div');
+                lockOverlay.classList.add('lock-overlay');
+                lockOverlay.innerHTML = '🔒';
+                levelLink.parentElement.appendChild(lockOverlay);
+            } else {
+                // Si está desbloqueado, eliminar la clase 'locked' y la superposición de bloqueo (si existe)
+                levelLink.classList.remove('locked');
+                const lockOverlay = levelLink.parentElement.querySelector('.lock-overlay');
+                if (lockOverlay) {
+                    lockOverlay.remove();
+                }
+            }
+        });
+    }
+    
+    // Aseguramos que el primer nivel siempre esté desbloqueado
+    if (!localStorage.getItem('level1Unlocked')) {
+        localStorage.setItem('level1Unlocked', 'true');
+    }
+    
+    // Llamar la función para asegurarse de que el mapa esté actualizado cada vez que se cargue
+    window.onload = initializeLevelMap;
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 60px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    z-index: 1;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    to {
+        text-shadow: 2px 2px 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 40px;
+    z-index: 1;
+}
+
+.button {
+    background: rgba(255, 255, 255, 0.7); /* Fondo blanco con 80% de opacidad */
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    width: 150px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.9); /* Aumentar la opacidad al hacer hover */
+}
+
+.icon {
+    width: 160px; /* Ampliar el tamaño de los íconos */
+    height: 160px;
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+.button span {
+    margin-top: auto; /* Empuja el texto hacia la parte inferior */
+    font-size: 18px;
+    font-weight: bold;
+    color: #444; /* Cambia el color a un gris oscuro */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Añade una sombra sutil */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    transition: color 0.3s; /* Transición suave al cambiar el color */
+}
+
+.button:hover span {
+    color: #222; /* Cambia a un tono más oscuro al hacer hover */
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+footer p {
+    font-size: 14px;
+    color: white;
+}
+
+/* Estilo general del modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.85); 
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(12px); /* Aumenta el desenfoque del fondo */
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #f8f8f8, #e0e0e0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 5px 10px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+    border-radius: 20px;
+    padding: 40px;
+    width: 85%;
+    max-width: 450px;
+    text-align: center;
+    transform: scale(0.9);
+    animation: showModal 0.4s forwards; /* Animación de aparición */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Sutil borde alrededor del modal */
+}
+
+@keyframes showModal {
+    to {
+        transform: scale(1);
+    }
+}
+
+.modal p {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía moderna */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-button {
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CAF50; /* Verde para el botón de Ingresar */
+    color: white;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía a juego */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px); /* Efecto de elevación más notorio al pasar el cursor */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al hacer hover */
+}
+
+.cancel-button {
+    background-color: #f44336; /* Rojo para el botón de Cancelar */
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #e53935;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+    font-family: Arial, sans-serif;
+}
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    border: 5px solid transparent;
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.loader-text {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Para ocultar el loader */
+.loader-container.hidden {
+    display: none;
+}

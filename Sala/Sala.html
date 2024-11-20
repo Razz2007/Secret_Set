@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Espera</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="waiting-room">
+        <h2>Bienvenido a la Sala de Espera</h2>
+        <div class="room-container">
+            <!-- Contenedor de jugadores -->
+            <div class="players">
+                <h3>Jugadores</h3>
+                <ul id="playerList">
+                    <!-- Los nombres de los jugadores se agregarán aquí -->
+                </ul>
+            </div>
+            
+            <!-- Contenedor del chat -->
+            <div class="chat">
+                <div id="messages"></div>
+                <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
+                <button id="send">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/socket.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <title>Rompecabezas</title>
+</head>
+<body>
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+        <div class="loader-text">SECRET SET</div>
+        <div class="gif">
+            <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
+        </div>
+    </div>
+    
+    <div class="timer" id="timer">Tiempo: 00:00</div>
+    
+    <div class="drag" id="drag">
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block1"></div>
+        </div>
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block2"></div>
+        </div>
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block3"></div>
+        </div>
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block4"></div>
+        </div>
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block5"></div>
+        </div>
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block6"></div>
+        </div>
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block7"></div>
+        </div>
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block8"></div>
+        </div>
+        <div class="dragBox">
+            <div class="images" draggable="true" ondragstart="drag(event)" id="block9"></div>
+        </div>
+    </div>
+
+    <div class="board">
+        <div class="dropBox" id="drop1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" id="drop2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" id="drop3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" id="drop4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" id="drop5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" id="drop6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" id="drop7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" id="drop8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" id="drop9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="completionModal" class="modal">
+        <div class="modal-content">
+            <h2>¡Felicidades!</h2>
+            <p>Has completado el rompecabezas en <span id="finalTime">00:00</span></p>
+            <div class="trophies" id="trophies"></div>
+            <div class="modal-buttons">
+                <button onclick="nextLevel()">Siguiente Nivel</button>
+                <button onclick="mainMenu()">Volver al mapa</button>
+                <button onclick="retry()">Reintentar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="errorModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>¡Ups! Algo no está bien</h2>
+            <p>Las piezas no están en las posiciones correctas. ¡Inténtalo de nuevo!</p>
+            <div class="modal-buttons">
+                <button onclick="retry()">Intentar de nuevo</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="instructionModal" class="modal">
+        <div class="modal-content instruction-content">
+            <h2>¿Cómo Jugar?</h2>
+            <div class="instructions">
+                <div class="instruction-item">
+                    <span class="instruction-icon">🖱️</span>
+                    <p>Arrastra las piezas del rompecabezas desde la parte superior hacia el tablero</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">⏱️</span>
+                    <p>El temporizador comenzará cuando muevas la primera pieza</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">🏆</span>
+                    <p>¡Consigue trofeos según tu tiempo!</p>
+                    <ul>
+                        <li>3 trofeos: Menos de 30 segundos</li>
+                        <li>2 trofeos: Menos de 60 segundos</li>
+                        <li>1 trofeo: Completar el puzzle</li>
+                    </ul>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">🎯</span>
+                    <p>Coloca todas las piezas en su posición correcta para ganar</p>
+                </div>
+            </div>
+            <button onclick="closeInstructionModal()" class="start-button">¡Empezar a Jugar!</button>
+        </div>
+    </div>
+    <script src="../js/levelManager.js"></script>
+    <script>
+        // Simulando el final del nivel 1
+        function finishLevel() {
+            // Desbloquear el nivel 2
+            localStorage.setItem('level2Unlocked', 'true');
+            localStorage.setItem('currentLevel', '2');  // Establecemos que el nivel 2 es el actual
+
+            // Redirigir al mapa
+            window.location.href = '../mapa/mapa.html';
+        }
+    </script>
+    <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
+    <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <script src="../js/audioManager.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/loader.js"></script>
+</body>
+</html>

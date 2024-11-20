@@ -1,0 +1,11 @@
+{
+  "configuracionJuego": {
+    "emojis": ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼"],
+    "tiempoTotal": 190,
+    "umbralesTrofeos": {
+      "tresTrofeos": 66,
+      "dosTrofeos": 33,
+      "unTrofeo": 0
+    }
+  }
+}

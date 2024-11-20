@@ -1,0 +1,66 @@
+const translations = {
+  "es": {
+      // Menú principal
+      "welcome": "Bienvenido",
+      "home": "Inicio",
+      "settings": "Configuración",
+      "friends": "Amigos",
+      "profile": "Mi perfil",
+      "musicSettings": "Configuración de Música",
+      "masterVolume": "Volumen Maestro",
+      "turnOff": "Apagar Música y Efectos",
+      "turnOn": "Encender Música y Efectos",
+      "effectsVolume": "Volumen de Efectos",
+      "musicVolume": "Volumen de Música",
+      "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
+
+      // Modos de juego
+      "localGame": "Partida Local",
+      "multiplayer": "Multijugador",
+      "footerGameModes": "© 2024 Secret Set - Todos los Derechos Reservados",
+
+      // Página de amigos
+      "friendsTitle": "Amigos",
+      "statusOnline": "Conectado",
+      "statusOffline": "Desconectado",
+      "statusInGame": "En partida",
+      "invite": "Invitar",
+      "addFriends": "Añadir Amigos",
+      "searchFriend": "Buscar amigo...",
+      "search": "Buscar",
+      "friendRequests": "Solicitudes de Amistad",
+      "footerFriends": "© 2024 Secret Set - Todos los Derechos Reservados"
+  },
+  "en": {
+      // Main menu
+      "welcome": "Welcome",
+      "home": "Home",
+      "settings": "Settings",
+      "friends": "Friends",
+      "profile": "My Profile",
+      "musicSettings": "Music Settings",
+      "masterVolume": "Master Volume",
+      "turnOff": "Turn Off Music and Effects",
+      "turnOn": "Turn On Music and Effects",
+      "effectsVolume": "Effects Volume",
+      "musicVolume": "Music Volume",
+      "footer": "© 2024 Secret Set - All Rights Reserved",
+
+      // Game modes
+      "localGame": "Local Game",
+      "multiplayer": "Multiplayer",
+      "footerGameModes": "© 2024 Secret Set - All Rights Reserved",
+
+      // Friends page
+      "friendsTitle": "Friends",
+      "statusOnline": "Online",
+      "statusOffline": "Offline",
+      "statusInGame": "In Game",
+      "invite": "Invite",
+      "addFriends": "Add Friends",
+      "searchFriend": "Search friend...",
+      "search": "Search",
+      "friendRequests": "Friend Requests",
+      "footerFriends": "© 2024 Secret Set - All Rights Reserved"
+  }
+};

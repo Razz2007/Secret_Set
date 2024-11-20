@@ -1,0 +1,34 @@
+{
+    "blocks": [
+        { "id": "block1", "image": "./images/1.png" },
+        { "id": "block2", "image": "./images/2.png" },
+        { "id": "block3", "image": "./images/3.png" },
+        { "id": "block4", "image": "./images/4.png" },
+        { "id": "block5", "image": "./images/5.png" },
+        { "id": "block6", "image": "./images/6.png" },
+        { "id": "block7", "image": "./images/7.png" },
+        { "id": "block8", "image": "./images/8.png" },
+        { "id": "block9", "image": "./images/9.png" }
+    ],
+    "trophies": {
+        "gold": {
+            "time": 30,
+            "count": 3,
+            "emoji": "🏆"
+        },
+        "silver": {
+            "time": 60,
+            "count": 2,
+            "emoji": "🏆"
+        },
+        "bronze": {
+            "time": null,
+            "count": 1,
+            "emoji": "🏆"
+        }
+    },
+    "timer": {
+        "enabled": true,
+        "startOnFirstMove": true
+    }
+}
