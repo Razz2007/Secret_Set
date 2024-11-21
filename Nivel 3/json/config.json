@@ -1,6 +1,15 @@
 {
   "configuracionJuego": {
-    "emojis": ["🌍", "🏙️", "🌆", "🗽", "🗼", "🚖", "✈️", "🏝️"],
+    "imagenes": [
+      "images/pareja2.jpg",
+      "images/pareja3.jpg",
+      "images/pareja4.jpg",
+      "images/pareja1.jpg",
+      "images/pa2.png",
+      "images/pa3.png",
+      "images/pa4.png",
+      "images/pa5.png"
+    ],
     "tiempoTotal": 190,
     "umbralesTrofeos": {
       "tresTrofeos": 66,

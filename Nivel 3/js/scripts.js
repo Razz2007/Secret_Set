@@ -11,21 +11,19 @@ const winModal = document.getElementById('win-modal');
 const loseModal = document.getElementById('lose-modal');
 const instructionsModal = document.getElementById('instructions-modal');
 
-// Cargar la configuración del JSON
 fetch('./json/config.json')
     .then(response => response.json())
     .then(data => {
-        // Extraer la configuración del JSON
-        emojis = data.configuracionJuego.emojis;
+        // Extraer configuración
+        emojis = data.configuracionJuego.imagenes; // Cambiar a "imagenes"
         totalTime = data.configuracionJuego.tiempoTotal;
         trophyThresholds = data.configuracionJuego.umbralesTrofeos;
-        
-        // Iniciar el juego con la configuración cargada
-        showInstructions();
+
+        showInstructions(); // Iniciar el juego después de cargar la configuración
     })
     .catch(error => {
         console.error("Error al cargar la configuración:", error);
-    });
+    }); 
 
 function showInstructions() {
     instructionsModal.style.display = 'flex';
@@ -61,12 +59,13 @@ function initializeGame() {
     });
 
     startTimer();
-}
-function createCard(value, index) {
+}function createCard(value, index) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-        <div class="card-face front">${value}</div>
+        <div class="card-face front">
+            <img src="${value}" alt="Imagen de carta">
+        </div>
         <div class="card-face back">
             <span>SECRET SET</span>
             <!-- Esquinas naranjas -->
@@ -81,7 +80,7 @@ function createCard(value, index) {
             <div class="circle bottom-right"></div>
         </div>
     `;
-    card.dataset.value = value;
+    card.dataset.value = value; // Almacenar el valor de la imagen para verificar coincidencias
     card.dataset.index = index;
     card.addEventListener('click', () => flipCard(card));
     return card;
@@ -184,3 +183,4 @@ function goToMenu() {
     loseModal.style.display = 'none';
     window.location.href = '../mapas/mapa3.html'; // Redirige al menú principal del mapa 3
 }
+
