@@ -1,14 +1,14 @@
 {
     "blocks": [
-        { "id": "block1", "image": "./images/1.png" },
-        { "id": "block2", "image": "./images/2.png" },
-        { "id": "block3", "image": "./images/3.png" },
-        { "id": "block4", "image": "./images/4.png" },
-        { "id": "block5", "image": "./images/5.png" },
-        { "id": "block6", "image": "./images/6.png" },
-        { "id": "block7", "image": "./images/7.png" },
-        { "id": "block8", "image": "./images/8.png" },
-        { "id": "block9", "image": "./images/9.png" }
+        { "id": "block1", "image": "./images/1.jpg" },
+        { "id": "block2", "image": "./images/2.jpg" },
+        { "id": "block3", "image": "./images/3.jpg" },
+        { "id": "block4", "image": "./images/4.jpg" },
+        { "id": "block5", "image": "./images/5.jpg" },
+        { "id": "block6", "image": "./images/6.jpg" },
+        { "id": "block7", "image": "./images/7.jpg" },
+        { "id": "block8", "image": "./images/8.jpg" },
+        { "id": "block9", "image": "./images/9.jpg" }
     ],
     "trophies": {
         "gold": {

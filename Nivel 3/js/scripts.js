@@ -168,7 +168,7 @@ function restartGame() {
 function goToMenu() {
     winModal.style.display = 'none';
     loseModal.style.display = 'none';
-    window.location.href = '../mapas/mapa4.html';
+    window.location.href = '../mapas/mapa3.html';
 }
 
 function restartGame() {
@@ -181,6 +181,6 @@ function restartGame() {
 function goToMenu() {
     winModal.style.display = 'none';
     loseModal.style.display = 'none';
-    window.location.href = '../mapas/mapa3.html'; // Redirige al menú principal del mapa 3
+    window.location.href = '../mapas/mapa4.html'; // Redirige al menú principal del mapa 3
 }
 

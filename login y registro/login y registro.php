@@ -36,9 +36,9 @@
             <p>Somos una nueva empresa llamada <b>CODEFORGE STUDIOS</b> y nuestro lema es <b>Tu Visión, Nuestro Código, Juegos Inolvidables</b>, somos 3 programadores junior desarrollando un proyecto inolvidable para la historia.</p>
             <p><b>Programadores:</b></p>
             <ul>
-                <li>Juan Sebastián González - Backend-Frontend-DataBase</li>
-                <li>Racinger Prada Olaya - Mockups-Figma</li>
-                <li>Jhampier Santos - Documentación</li>
+                <li>Juan Sebastián González - DataBase</li>
+                <li>Racinger Prada Olaya - Backend</li>
+                <li>Jhampier Santos - FrontEnd</li>
             </ul>
         </div>
     </div>
