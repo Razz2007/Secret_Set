@@ -8,9 +8,26 @@
     <link rel="stylesheet" href="./css/loader.css">
 </head>
 <body>
+    <style>
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0; /* Add this line to hide the selector */
+            pointer-events: none; /* Add this line to disable interactions */
+        }
+
+        .language-selector select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+    </style>
     <div class="loader-container" id="loader">
         <div class="loader"></div>
-        <div class="loader-text">SECRET SET</div>
+        <div class="loader-text" data-i18n="loader.text">SECRET SET</div>
         <div class="gif">
             <img class="gif" src="images/holaaa-unscreen.gif" alt="Imagen gif">
         </div>
@@ -18,29 +35,29 @@
     
     <div class="game-container">
         <div class="header">
-            <div class="timer">Tiempo: <span id="time">10</span>s</div>
+            <div class="timer" data-i18n="header.timer">Tiempo: <span id="time">10</span>s</div>
         </div>
         <div class="grid" id="grid">
-        
             <!-- Aquí se integrarán las tarjetas dinámicamente -->
         </div>
     </div>
     
     <div class="modal" id="instructions-modal">
         <div class="modal-content">
-            <h2>Cómo Jugar</h2>
+            <h2 data-i18n="instructions.title">Cómo Jugar</h2>
             <div class="instructions-container">
                 <div class="instruction-item">
                     <span class="instruction-icon">🎮</span>
-                    <p>Encuentra todos los pares de cartas coincidentes antes de que se acabe el tiempo</p>
+                    <p data-i18n="instructions.rule1">Encuentra todos los pares de cartas coincidentes antes de que se acabe el tiempo</p>
                 </div>
                 <div class="instruction-item">
                     <span class="instruction-icon">⏱️</span>
-                    <p>Tienes 190 segundos para completar el nivel</p>
+                    <p data-i18n="instructions.rule2">Tienes 190 segundos para completar el nivel</p>
                 </div>
                 <div class="instruction-item">
                     <span class="instruction-icon">🏆</span>
-                    <p>Gana trofeos según el tiempo restante:
+                    <p data-i18n="instructions.rule3">
+                        Gana trofeos según el tiempo restante:
                         <br>3 trofeos: >66% del tiempo
                         <br>2 trofeos: >33% del tiempo
                         <br>1 trofeo: completado
@@ -48,43 +65,46 @@
                 </div>
                 <div class="instruction-item">
                     <span class="instruction-icon">💡</span>
-                    <p>Memoriza la ubicación de las cartas para encontrar las parejas más rápido</p>
+                    <p data-i18n="instructions.rule4">Memoriza la ubicación de las cartas para encontrar las parejas más rápido</p>
                 </div>
             </div>
-            <button class="btn btn-primary" onclick="closeInstructions()">¡Empezar a Jugar!</button>
+            <button class="btn btn-primary text-boton" onclick="closeInstructions()" data-i18n="instructions.start">¡Empezar a Jugar!</button>
         </div>
     </div>
 
     <!-- Modal Victoria -->
     <div class="modal" id="win-modal">
         <div class="modal-content">
-            <h2>¡Felicitaciones!</h2>
+            <h2 data-i18n="win.title">¡Felicitaciones!</h2>
             <div class="trophies">
                 <span class="trophy" id="trophy1">🏆</span>
                 <span class="trophy" id="trophy2">🏆</span>
                 <span class="trophy" id="trophy3">🏆</span>
             </div>
-            <button class="btn btn-primary" onclick="nextLevel()">Siguiente Nivel</button>
-            <button class="btn btn-primary" onclick="restartGame()">Reintentar</button>
-            <button class="btn btn-secondary" onclick="goToMenu()">Menú Principal</button>
+            <button class="btn btn-primary" onclick="nextLevel()" data-i18n="win.nextLevel">Siguiente Nivel</button>
+            <button class="btn btn-primary" onclick="restartGame()" data-i18n="win.retry">Reintentar</button>
+            <button class="btn btn-secondary" onclick="goToMenu()" data-i18n="win.menu">Menú Principal</button>
         </div>
     </div>
 
    <!-- Modal Derrota -->
-<div id="lose-modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <h2>¡Tiempo agotado!</h2>
-        <p class="p">¿Qué deseas hacer?</p>
-        <button id="retry-button" onclick="restartGame()">Reintentar</button>
-        <button id="menu-button" onclick="goToMenu()">Menú principal</button>
+    <div id="lose-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2 data-i18n="lose.title">¡Tiempo agotado!</h2>
+            <p class="p" data-i18n="lose.prompt">¿Qué deseas hacer?</p>
+            <button id="retry-button" onclick="restartGame()" data-i18n="lose.retry">Reintentar</button>
+            <button id="menu-button" onclick="goToMenu()" data-i18n="lose.menu">Menú principal</button>
+        </div>
     </div>
-</div>
-
-
 
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
+    <script src="../Menu/js/languajes1 copy.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/loader.js"></script>
 </body>

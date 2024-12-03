@@ -9,6 +9,22 @@
     <link rel="icon" href="../imgs/icon_p_png.png" type="image/png">
 </head>
 <body>
+    <style>
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0; /* Add this line to hide the selector */
+            pointer-events: none; /* Add this line to disable interactions */
+        }
+        .language-selector select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+    </style>    
     <div class="loader-container" id="loader">
         <div class="loader"></div>
         <div class="loader-text">SECRET SET</div>
@@ -16,23 +32,29 @@
             <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif">
         </div>
     </div>
-    <a href="../modos de juego/modos de juego.html" class="back-arrow">
-        <img src="./imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img">
+
+    <a href="../modos de juego/modos de juego.html" class="back-arrow text-boton">
+        <img src="./imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img text-boton">
     </a>
 
-    <div class="button">
-        <a href="../mapas/mapa.html">
-            <img src="../imgs/boton de play.jpg" alt="Partida Local" class="icon">
+    <div class="button text-boton" >
+        <a href="../mapas/mapa.html" class="text-boton">
+            <img src="../imgs/boton de play.jpg" alt="Partida Local" class="icon text-boton">
         </a>
-        <br>
-        <span data-i18n="localGame">Jugar</span>
+        <span class="text-boton" cdata-i18n="localGame">Jugar</span>
     </div>
+
 
 
     <h1 class="title">SECRET SET</h1>
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="./js/loader.js"></script>
+    <script src="../Menu/js/languajes1.js"></script>
 </body>
 </html>

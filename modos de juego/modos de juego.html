@@ -35,8 +35,8 @@
         </div>
     </div>
 
-    <a href="../Menu/menu.html" class="back-arrow">
-        <img src="./imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img">
+    <a href="../Menu/menu.html" class="back-arrow text-boton">
+        <img src="./imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img text-boton">
     </a>
 
     <!-- Título de la página -->
@@ -45,18 +45,19 @@
     <!-- Contenedor de botones -->
     <div class="buttons">
         <!-- Botón de Partida Local -->
-        <div class="button">
-            <a href="../botonmapa/botonmapa.html">
-                <img src="./imgs/Partida Local.png" alt="Partida Local" class="icon">
+        <div class="button text-boton">
+            <a href="../botonmapa/botonmapa.html" class="text-boton">
+                <img src="./imgs/Partida Local.png" alt="Partida Local" class="icon text-boton">
+                
             </a>
-            <br>
-            <span data-i18n="localGame">Partida Local</span>
+            <span data-i18n="localGame1">Partida Local</span>
+           
         </div>
 
         <!-- Botón de Multijugador -->
-        <div class="button">
-            <a href="../unirse a sala/unirse o crear sala.html">
-                <img src="./imgs/Multijugador.png" alt="Usuario" class="icon">
+        <div class="button text-boton">
+            <a href="../unirse a sala/unirse o crear sala.html" class="text-boton">
+                <img src="./imgs/Multijugador.png" alt="Usuario" class="icon text-boton">
             </a>
             <span data-i18n="multiplayer">Multijugador</span>
         </div>
@@ -69,7 +70,10 @@
 
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
-
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="js/loader.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="../Menu/js/languajes1.js"></script>

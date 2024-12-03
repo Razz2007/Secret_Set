@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Set</title>
-    <link rel="stylesheet" href="css/menu.css">  <!-- Sin el punto inicial -->
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="../botonmapa/css/loader.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../imgs/icon_p_png.png" type="image/png">
@@ -18,61 +18,48 @@
         </div>
     </div>
 
+    <h1 class="welcome" data-i18n="welcome">Bienvenido</h1>
 
-
-<h1 class="welcome" data-i18n="welcome">Bienvenido</h1>
-
-<div class="menu">
-    <a href="../modos de juego/modos de juego.html" class="btn" data-i18n="home">Inicio</a>
-    <a href="#" class="btn" id="configBtn" data-i18n="settings">Configuración</a>
-    <a href="../amigos/amigos.html" class="btn" data-i18n="friends">Amigos</a>
-    <a href="../perfil/perfil.html" class="btn" data-i18n="profile">Mi perfil</a>
-</div>
-
-<div id="configModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 data-i18n="musicSettings">Configuración de Música</h2>
-        <label for="masterVolume" data-i18n="masterVolume">Volumen Maestro:</label>
-        <div class="button-container">
-            <button id="turnOffBtn" data-i18n="turnOff">Apagar Música y Efectos</button>
-            <button id="turnOnBtn" data-i18n="turnOn">Encender Música y Efectos</button>
-        </div>
-        <label for="effectsVolume" data-i18n="effectsVolume">Volumen de Efectos:</label>
-        <input type="range" id="effectsVolume" min="0" max="100" value="50">
-        <p>Volumen de efectos actual: <span id="effectsValue">50</span></p>
-        <label for="musicVolume" data-i18n="musicVolume">Volumen de Música:</label>
-        <input type="range" id="musicVolume" min="0" max="100" value="50">
-        <p>Volumen de música actual: <span id="musicValue">50</span></p>
+    <div class="menu">
+        <a href="../modos de juego/modos de juego.html" class="btn text-boton" data-i18n="home">Inicio</a>
+        <a href="#" class="btn text-boton" id="configBtn" data-i18n="settings">Configuración</a>
+        
+        <a href="../amigos/amigos.html" class="btn text-boton" data-i18n="friends">Amigos</a>
+        <a href="../perfil/perfil.html" class="btn text-boton" data-i18n="profile">Mi perfil</a>
     </div>
-</div>
 
-<footer>
-    <p data-i18n="footer">© 2024 Secret Set - Todos los Derechos Reservados</p>
-</footer>
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <span class="close text-boton" >&times;</span>
+            <h2 data-i18n="musicSettings">Configuración     de Música</h2>
+            <label for="masterVolume" data-i18n="masterVolume">Volumen Maestro:</label>
+            <div class= "button-container">
+                <button class="text-boton"  id="turnOffBtn" data-i18n="turnOff">Apagar Música y Efectos</button>
+                <button class="text-boton"  id="turnOnBtn" data-i18n="turnOn">Encender Música y Efectos</button>
+            </div>
+            <label for="effectsVolume" data-i18n="effectsVolume">Volumen de Efectos:</label>
+            <input type="range" id="effectsVolume" min="0" max="100" value="50">
+            <p>Volumen de efectos actual: <span id="effectsValue">50</span></p>
+            <label for="musicVolume" data-i18n="musicVolume">Volumen de Música:</label>
+            <input type="range" id="musicVolume" min="0" max="100" value="50">
+            <p>Volumen de música actual: <span id="musicValue">50</span></p>
+        </div>
+    </div>
 
-<audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
-<audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <footer>
+        <p data-i18n="footer">© 2024 Secret Set - Todos los Derechos Reservados</p>
+    </footer>
 
-<script src="./js/audioManager.js"></script>
-<script src="./js/menu.js"></script>
-<script src="../botonmapa/js/loader.js"></script>
-<script src="./js/languajes1.js"></script>
-
-
-
+    <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
+    <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="./js/audioManager.js"></script>
+    <script src="../js/sonido.js"></script>
+    <script src="./js/menu.js"></script>    
+    <script src="../botonmapa/js/loader.js"></script>
+    <script src="./js/languajes1.js"></script>
+    
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

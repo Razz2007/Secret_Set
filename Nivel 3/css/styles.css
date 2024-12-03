@@ -466,7 +466,7 @@ body {
     padding: 25px;
     border-radius: 20px;
     width: 90%;
-    max-width: 400px;
+    max-width: 365px;
     text-align: center;
     border: 5px solid #ff8d00;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1);
@@ -607,3 +607,4 @@ body {
     object-fit: cover;
     border-radius: 8px;
 }
+

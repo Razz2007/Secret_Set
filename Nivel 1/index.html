@@ -5,18 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/loader.css">
-    <title>Rompecabezas</title>
+    <title data-i18n="title">Rompecabezas</title>
 </head>
 <body> 
+    <style>
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0; /* Add this line to hide the selector */
+            pointer-events: none; /* Add this line to disable interactions */
+        }
+
+        .language-selector select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+    </style>
     <div class="loader-container" id="loader">
         <div class="loader"></div>
-        <div class="loader-text">SECRET SET</div>
+        <div class="loader-text" data-i18n="loaderText">SECRET SET</div>
         <div class="gif">
-            <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif">
+            <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif" data-i18n-alt="gifAlt">
         </div>
     </div>
     
-    <div class="timer" id="timer">Tiempo: 00:00</div>
+    <div class="timer" id="timer" data-i18n="timer">Tiempo: 00:00</div>
     
     <div class="drag" id="drag">
         <div class="dragBox">
@@ -60,64 +77,71 @@
         <div class="dropBox" id="drop9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal de Completado -->
     <div id="completionModal" class="modal">
         <div class="modal-content">
-            <h2>¡Felicidades!</h2>
-            <p>Has completado el rompecabezas en <span id="finalTime">00:00</span></p>
+            <h2 data-i18n="congratulationsTitle">¡Felicidades!</h2>
+            <p><span data-i18n="puzzleCompleted">Has completado el rompecabezas en</span> <span id="finalTime">00:00</span></p>
             <div class="trophies" id="trophies"></div>
-            <div class="modal-buttons">
-                <button onclick="nextLevel()">Siguiente Nivel</button>
-                <button onclick="mainMenu()">Volver al mapa</button>
-                <button onclick="retry()">Reintentar</button>
+            <div class="modal-buttons text-boton">
+                <button onclick="nextLevel()" data-i18n="nextLevel" class="text-boton">Siguiente Nivel</button>
+                <button onclick="mainMenu()" data-i18n="backToMap" class="text-boton">Volver al mapa</button>
+                <button class="text-boton" onclick="retry()" class="text-boton" data-i18n="retry" class="text-boton">Reintentar</button>
             </div>
         </div>
     </div>
     
+    <!-- Modal de Error -->
     <div id="errorModal" class="modal" style="display: none;">
         <div class="modal-content">
-            <h2>¡Ups! Algo no está bien</h2>
-            <p>Las piezas no están en las posiciones correctas. ¡Inténtalo de nuevo!</p>
+            <h2 data-i18n="errorTitle">¡Ups! Algo no está bien</h2>
+            <p data-i18n="errorMessage">Las piezas no están en las posiciones correctas. ¡Inténtalo de nuevo!</p>
             <div class="modal-buttons">
-                <button onclick="retry()">Intentar de nuevo</button>
+                <button onclick="retry()" data-i18n="tryAgain">Intentar de nuevo</button>
             </div>
         </div>
     </div>
     
+    <!-- Modal de Instrucciones -->
     <div id="instructionModal" class="modal">
         <div class="modal-content instruction-content">
-            <h2>¿Cómo Jugar?</h2>
+            <h2 data-i18n="howToPlay">¿Cómo Jugar?</h2>
             <div class="instructions">
                 <div class="instruction-item">
                     <span class="instruction-icon">🖱️</span>
-                    <p>Arrastra las piezas del rompecabezas desde la parte superior hacia el tablero</p>
+                    <p data-i18n="dragPieces">Arrastra las piezas del rompecabezas desde la parte superior hacia el tablero</p>
                 </div>
                 <div class="instruction-item">
                     <span class="instruction-icon">⏱️</span>
-                    <p>El temporizador comenzará cuando muevas la primera pieza</p>
+                    <p data-i18n="timerStart">El temporizador comenzará cuando muevas la primera pieza</p>
                 </div>
                 <div class="instruction-item">
                     <span class="instruction-icon">🏆</span>
-                    <p>¡Consigue trofeos según tu tiempo!</p>
+                    <p data-i18n="getTrophies">¡Consigue trofeos según tu tiempo!</p>
                     <ul>
-                        <li>3 trofeos: Menos de 30 segundos</li>
-                        <li>2 trofeos: Menos de 60 segundos</li>
-                        <li>1 trofeo: Completar el puzzle</li>
+                        <li data-i18n="trophy3">3 trofeos: Menos de 30 segundos</li>
+                        <li data-i18n="trophy2">2 trofeos: Menos de 60 segundos</li>
+                        <li data-i18n="trophy1">1 trofeo: Completar el puzzle</li>
                     </ul>
                 </div>
                 <div class="instruction-item">
                     <span class="instruction-icon">🎯</span>
-                    <p>Coloca todas las piezas en su posición correcta para ganar</p>
+                    <p data-i18n="placeCorrectly">Coloca todas las piezas en su posición correcta para ganar</p>
                 </div>
             </div>
-            <button onclick="closeInstructionModal()" class="start-button">¡Empezar a Jugar!</button>
+            <button onclick="closeInstructionModal()" class="start-button text-boton" data-i18n="startPlaying">¡Empezar a Jugar!</button>
         </div>
     </div>
     <script src="../js/levelManager.js"></script>
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/loader.js"></script>
+    <script src="../Menu/js/languajes1.js"></script>
 </body>
 </html>

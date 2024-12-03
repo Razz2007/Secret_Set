@@ -34,23 +34,23 @@
             <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif">
         </div>
 </div>
-    <a href="../modos de juego/modos de juego.html" class="back-arrow">
-        <img src="./imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img">
+    <a href="../modos de juego/modos de juego.html" class="back-arrow text-boton">
+        <img src="./imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img text-boton">
     </a>
 
-    <h1 class="title" data-i18n="title">SECRET SET</h1>
+    <h1 class="title" data-i18n="title1">SECRET SET</h1>
 
     <div class="buttons">
         <div class="button">
-            <a href="../Multijugador/Inicio multijugador.html">
-                <img src="./imgs/unirme sala.jpg" alt="Admin" class="icon">
+            <a href="../Multijugador/Inicio multijugador.html" class="text-boton">
+                <img src="./imgs/unirme sala.jpg" alt="Admin" class="icon text-boton">
             </a>
             <br>
             <span data-i18n="joinRoom">Unirme a Sala</span>
         </div>
         <div class="button">
-            <a href="../crear sala/crear sala.html">
-                <img src="./imgs/crear sala.jpg" alt="Usuario" class="icon">
+            <a href="../crear sala/crear sala.html " class="text-boton">
+                <img src="./imgs/crear sala.jpg" alt="Usuario" class="icon text-boton">
             </a>
             <span data-i18n="createRoom">Crear Sala</span>
         </div>
@@ -62,6 +62,10 @@
 
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="./js/loader.js"></script>
     

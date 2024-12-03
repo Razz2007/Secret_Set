@@ -47,11 +47,15 @@
                     <p>Si el elemento no pertenece a la categoría, recibirás un mensaje de error.</p>
                 </div>
             </div>
-            <button class="start-button" onclick="closeInstructionsModal()">Comenzar Juego</button>
+            <button class="start-button text-boton" onclick="closeInstructionsModal()">Comenzar Juego</button>
         </div>
     </div>   
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/loader.js"></script>

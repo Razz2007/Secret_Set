@@ -45,7 +45,7 @@
         <h1 class="titulo" data-i18n="friendsTitle">Amigos</h1>
 
         <div class="back-button">
-            <a href="../Menu/menu.html"><span class="close">&times;</span></a>
+            <a class="text-boton" href="../Menu/menu.html"><span class="close">&times;</span></a>
         </div>
         <div class="contenedor">
             <div class="friends-list">
@@ -103,6 +103,10 @@
 
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="../Menu/js/languajes1.js"></script>
     <script src="js/amigos.js"></script>

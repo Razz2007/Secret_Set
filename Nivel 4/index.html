@@ -44,7 +44,7 @@
                         </p>
                     </div>
                 </div>
-                <button class="modal-button" onclick="closeInstructions()">¡Empezar a Jugar!</button>
+                <button class="modal-button text-boton" onclick="closeInstructions()">¡Empezar a Jugar!</button>
             </div>
         </div>
         <div id="successModal" class="modal">
@@ -91,13 +91,17 @@
                 <h3>Tu Respuesta</h3>
                 <div id="userAnswer"></div>
             </div>
-            <button id="checkAnswer">Comprobar Respuesta</button>
+            <button class="text-boton" id="checkAnswer">Comprobar Respuesta</button>
             <div id="feedback" class="feedback"></div>
             
             
         </div>
         <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
         <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+        <audio id="clickSound">
+            <source src="../audio/click.mp3" type="audio/mp3">
+        </audio>
+        <script src="../js/sonido.js"></script>
         <script src="../js/audioManager.js"></script>
         <script src="./js/scripts.js"></script>
         <script src="./js/loader.js"></script>

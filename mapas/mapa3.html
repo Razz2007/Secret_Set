@@ -10,6 +10,23 @@
     <link rel="icon" href="../imgs/icon_p_png.png" type="image/png">
 </head>
 <body>
+    <style>
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0; /* Add this line to hide the selector */
+            pointer-events: none; /* Add this line to disable interactions */
+        }
+
+        .language-selector select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+    </style>
     <div class="loader-container" id="loader">
         <div class="loader"></div>
         <div class="loader-text">SECRET SET</div>
@@ -18,31 +35,31 @@
         </div>
 </div>
 
-    <a href="../botonmapa/botonmapa.html" class="back-arrow">
-        <img src="../imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img">
+    <a href="../botonmapa/botonmapa.html" class="back-arrow text-boton">
+        <img src="../imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img text-boton">
     </a>
 
     <!-- Título con efecto neón -->
     <div class="title-container">
-        <h1 class="neon-title">Niveles</h1>
+        <h1 class="neon-title" data-i18n="title">Niveles</h1>
     </div>
 
     <!-- Contenedor principal -->
     <div class="main-container">
         <div class="niveles">
             <div class="nivel">
-                <a href="../Nivel 1/index.html" style="text-decoration: none;">
-                    <h1>1</h1>
+                <a href="../Nivel 1/index.html" class="text-boton" style="text-decoration: none;">
+                    <h1 class="text-boton">1</h1>
                 </a>
             </div>
             <div class="nivel">
-                <a href="../Nivel 2/index.html" style="text-decoration: none;">
-                    <h1>2</h1>
+                <a href="../Nivel 2/index.html" class="text-boton" style="text-decoration: none;">
+                    <h1 class="text-boton">2</h1>
                 </a>
             </div>
             <div class="nivel">
-              <a href="../Nivel 3/index.html" style="text-decoration: none;">
-                <h1>3</h1>
+              <a href="../Nivel 3/index.html" class="text-boton" style="text-decoration: none;">
+                <h1 class="text-boton">3</h1>
             </a>
             </div>
             <div class="nivel">
@@ -52,7 +69,12 @@
     </div>
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="js/loader.js"></script>
+    <script src="../Menu/js/languajes1.js"></script>
 </body>
 </html>

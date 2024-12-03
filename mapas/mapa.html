@@ -36,22 +36,22 @@
 </div>
 
 
-    <a href="../botonmapa/botonmapa.html" class="back-arrow">
-        <img src="../imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img">
+    <a href="../botonmapa/botonmapa.html" class="back-arrow text-boton">
+        <img src="../imgs/arrow-removebg-preview.png" alt="Flecha de retroceder" class="arrow-img text-boton">
     </a>
 
 
     <!-- Título con efecto neón -->
     <div class="title-container">
-        <h1 class="neon-title">Niveles</h1>
+        <h1 class="neon-title" data-i18n="title">Niveles</h1>
     </div>
 
     <!-- Contenedor principal -->
     <div class="main-container">
         <div class="niveles">
-            <div class="nivel">
-                <a href="../Nivel 1/index.html" style="text-decoration: none;">
-                    <h1>1</h1>
+            <div class="nivel ">
+                <a href="../Nivel 1/index.html" class="text-boton" style="text-decoration: none;">
+                    <h1 class="text-boton">1</h1>
                 </a>
             </div>
             <div class="nivel">
@@ -67,7 +67,12 @@
     </div>
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="clickSound">
+        <source src="../audio/click.mp3" type="audio/mp3">
+    </audio>
+    <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="js/loader.js"></script>
+    <script src="../Menu/js/languajes1.js"></script>
 </body>
 </html>

@@ -649,3 +649,61 @@ button.reset:active {
     height: auto;
     z-index: 100;
   }
+
+/* Estilos para el contenedor del selector de idiomas */
+.language-selector {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+/* Estilos para el select */
+#langSelect {
+    background: linear-gradient(145deg, #6a0dad, #2d0b3d);
+    color: #ffffff;
+    border: 2px solid #8b5fbf;
+    padding: 8px 30px 8px 15px; 
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+#langSelect:hover {
+    border-color: #ffd700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(106, 13, 173, 0.4);
+}
+
+/* Focus effect */
+#langSelect:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 0 3px rgba(139, 95, 191, 0.3);
+}
+
+/* Estilos para las opciones del select */
+#langSelect option {
+    background-color: #2d0b3d;
+    color: #ffffff;
+    padding: 10px;
+}
+
+/* Agregar un pseudo-elemento para la flecha personalizada */
+.language-selector::after {
+    content: '▼';
+    font-size: 0.8em;
+    color: #ffd700;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
