@@ -9,21 +9,17 @@
 </head>
 <body> 
     <style>
-        .language-selector {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            opacity: 0; /* Add this line to hide the selector */
-            pointer-events: none; /* Add this line to disable interactions */
-        }
-
-        .language-selector select {
-            padding: 5px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background-color: white;
-        }
+.language-selector {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
     </style>
     <div class="loader-container" id="loader">
         <div class="loader"></div>
@@ -133,7 +129,6 @@
             <button onclick="closeInstructionModal()" class="start-button text-boton" data-i18n="startPlaying">¡Empezar a Jugar!</button>
         </div>
     </div>
-    <script src="../js/levelManager.js"></script>
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
     <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
     <audio id="clickSound">
@@ -143,6 +138,6 @@
     <script src="../js/audioManager.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/loader.js"></script>
-    <script src="../Menu/js/languajes1.js"></script>
+    <script src="../Menu/js/languajes1 copy 2.js"></script>
 </body>
 </html>
