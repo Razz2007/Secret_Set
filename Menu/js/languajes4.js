@@ -100,3 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial content update
     updateContent(currentLang);
 });
+
+
+
+
+
+
+
+
+
+

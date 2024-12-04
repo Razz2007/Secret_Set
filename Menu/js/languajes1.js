@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const basePath = getBasePath();
     let currentLang = localStorage.getItem('language') || 'es';
     
+    // Selecciona el elemento de audio para el sonido de clic
+    const audio = document.getElementById("clickSound");
+    
     const languageSelector = document.createElement('div');
     languageSelector.className = 'language-selector';
     languageSelector.innerHTML = `
@@ -21,198 +24,198 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const translations = {
         "es": {
-            // Menú principal
-            "welcome": "Bienvenido",
-            "home": "Inicio",
-            "settings": "Configuración",
-            "friends": "Amigos",
-            "profile": "Mi perfil",
-            "musicSettings": "Configuración de Música",
-            "masterVolume": "Volumen Maestro",
-            "turnOff": "Apagar Música y Efectos",
-            "turnOn": "Encender Música y Efectos",
-            "effectsVolume": "Volumen de Efectos",
-            "musicVolume": "Volumen de Música",
-            "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
+            // Traducciones en español (como estaban en tu código original)
+          // Menú principal
+          "welcome": "Bienvenido",
+          "home": "Inicio",
+          "settings": "Configuración",
+          "friends": "Amigos",
+          "profile": "Mi perfil",
+          "musicSettings": "Configuración de Música",
+          "masterVolume": "Volumen Maestro",
+          "turnOff": "Apagar Música y Efectos",
+          "turnOn": "Encender Música y Efectos",
+          "effectsVolume": "Volumen de Efectos",
+          "musicVolume": "Volumen de Música",
+          "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
 
-            // Modos de juego
-            "localGame1": "Partida Local",
-            "multiplayer": "Multijugador",
-            "footerGameModes": "© 2024 Secret Set - Todos los Derechos Reservados",
+          // Modos de juego
+          "localGame1": "Partida Local",
+          "multiplayer": "Multijugador",
+          "footerGameModes": "© 2024 Secret Set - Todos los Derechos Reservados",
 
-            // Página de amigos
-            "friendsTitle": "Amigos",
-            "statusOnline": "Conectado",
-            "statusOffline": "Desconectado",
-            "statusInGame": "En partida",
-            "invite": "Invitar",
-            "addFriends": "Añadir Amigos",
-            "searchFriend": "Buscar amigo...",
-            "search": "Buscar",
-            "friendRequests": "Solicitudes de Amistad",
-            "footerFriends": "© 2024 Secret Set - Todos los Derechos Reservados",
+          // Página de amigos
+          "friendsTitle": "Amigos",
+          "statusOnline": "Conectado",
+          "statusOffline": "Desconectado",
+          "statusInGame": "En partida",
+          "invite": "Invitar",
+          "addFriends": "Añadir Amigos",
+          "searchFriend": "Buscar amigo...",
+          "search": "Buscar",
+          "friendRequests": "Solicitudes de Amistad",
+          "footerFriends": "© 2024 Secret Set - Todos los Derechos Reservados",
 
-            "title": "Secret Set",
-            "joinRoom": "Unirme a Sala",
-            "createRoom": "Crear Sala",
-            "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
+          "title": "Secret Set",
+          "joinRoom": "Unirme a Sala",
+          "createRoom": "Crear Sala",
+          "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
 
-            "title": "Secret Set",
-            "multiplayer": "Multijugador",
-            "selectAvatar": "Elije tu avatar",
-            "enterCode": "Ingresa el código para unirte a la sala",
-            "placeholderCode": "Fg12kwZ",
-            "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
+          "title": "Secret Set",
+          "multiplayer": "Multijugador",
+          "selectAvatar": "Elije tu avatar",
+          "enterCode": "Ingresa el código para unirte a la sala",
+          "placeholderCode": "Fg12kwZ",
+          "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
 
-            "title1": "SECRET SET",
-            "createRoomTitle": "Crear Sala",
-            "createRoom": "Crear Sala",
-            "players": "Jugadores",
-            "rounds": "Rondas",
-            "maps": "Mapas",
-            "selectMap": "Selecciona un mapa",
-            "newYork": "Nueva York",
-            "losAngeles": "Los Ángeles",
-            "miami": "Miami",
-            "sanFrancisco": "San Francisco",
-            "lasVegas": "Las Vegas",
-            "london": "Londres",
-            "paris": "París",
-            "rome": "Roma",
-            "berlin": "Berlín",
-            "madrid": "Madrid",
-            "barcelona": "Barcelona",
-            "amsterdam": "Ámsterdam",
-            "vienna": "Viena",
-            "prague": "Praga",
-            "mexicoCity": "Ciudad de México",
-            "buenosAires": "Buenos Aires",
-            "saoPaulo": "São Paulo",
-            "rioDeJaneiro": "Río de Janeiro",
-            "bogota": "Bogotá",
-            "medellin": "Medellín",
-            "resetValues": "Restablecer valores predeterminados",
-            "random": "Aleatorio",
-            "createRoomButton": "Crear Sala",
-            "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
+          "title1": "SECRET SET",
+          "createRoomTitle": "Crear Sala",
+          "createRoom": "Crear Sala",
+          "players": "Jugadores",
+          "rounds": "Rondas",
+          "maps": "Mapas",
+          "selectMap": "Selecciona un mapa",
+          "newYork": "Nueva York",
+          "losAngeles": "Los Ángeles",
+          "miami": "Miami",
+          "sanFrancisco": "San Francisco",
+          "lasVegas": "Las Vegas",
+          "london": "Londres",
+          "paris": "París",
+          "rome": "Roma",
+          "berlin": "Berlín",
+          "madrid": "Madrid",
+          "barcelona": "Barcelona",
+          "amsterdam": "Ámsterdam",
+          "vienna": "Viena",
+          "prague": "Praga",
+          "mexicoCity": "Ciudad de México",
+          "buenosAires": "Buenos Aires",
+          "saoPaulo": "São Paulo",
+          "rioDeJaneiro": "Río de Janeiro",
+          "bogota": "Bogotá",
+          "medellin": "Medellín",
+          "resetValues": "Restablecer valores predeterminados",
+          "random": "Aleatorio",
+          "createRoomButton": "Crear Sala",
+          "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
 
-            "welcome": "Bienvenido",
-            "home": "Inicio",
-            "settings": "Configuración",
-            "friends": "Amigos",
-            "profile": "Mi perfil",
-            "Ejercicios Completados": "Ejercicios Completados",
-            "Problemas Resueltos": "Problemas Resueltos",
-            "Tiempo total de estudio": "Tiempo total de estudio",
-            "Trofeos ganados 🏆": "Trofeos ganados 🏆",
-            "Progreso al Siguiente Nivel": "Progreso al Siguiente Nivel",
-            "Logros por Desbloquear": "Logros por Desbloquear",
-            "Unión Perfecta": "Unión Perfecta",
-            "Completa 5 ejercicios de unión de conjuntos": "Completa 5 ejercicios de unión de conjuntos",
-            "Maestro de Intersección": "Maestro de Intersección",
-            "Resuelve 10 problemas de intersección": "Resuelve 10 problemas de intersección",
-            "Subconjuntos Experto": "Subconjuntos Experto",
-            "Identifica correctamente 15 subconjuntos": "Identifica correctamente 15 subconjuntos",
-            "Vacío Perfecto": "Vacío Perfecto",
-            "Identifica 5 conjuntos vacíos": "Identifica 5 conjuntos vacíos",
+          "welcome": "Bienvenido",
+          "home": "Inicio",
+          "settings": "Configuración",
+          "friends": "Amigos",
+          "profile": "Mi perfil",
+          "Ejercicios Completados": "Ejercicios Completados",
+          "Problemas Resueltos": "Problemas Resueltos",
+          "Tiempo total de estudio": "Tiempo total de estudio",
+          "Trofeos ganados 🏆": "Trofeos ganados 🏆",
+          "Progreso al Siguiente Nivel": "Progreso al Siguiente Nivel",
+          "Logros por Desbloquear": "Logros por Desbloquear",
+          "Unión Perfecta": "Unión Perfecta",
+          "Completa 5 ejercicios de unión de conjuntos": "Completa 5 ejercicios de unión de conjuntos",
+          "Maestro de Intersección": "Maestro de Intersección",
+          "Resuelve 10 problemas de intersección": "Resuelve 10 problemas de intersección",
+          "Subconjuntos Experto": "Subconjuntos Experto",
+          "Identifica correctamente 15 subconjuntos": "Identifica correctamente 15 subconjuntos",
+          "Vacío Perfecto": "Vacío Perfecto",
+          "Identifica 5 conjuntos vacíos": "Identifica 5 conjuntos vacíos",
 
-            "localGame": "Jugar",
-            "loaderText": "SECRET SET",
-            "backArrowAlt": "Flecha de retroceder",
-            "playButtonAlt": "Partida Local",
-            "gifAlt": "Imagen gif",
-            "title": "SECRET SET",
+          "localGame": "Jugar",
+          "loaderText": "SECRET SET",
+          "backArrowAlt": "Flecha de retroceder",
+          "playButtonAlt": "Partida Local",
+          "gifAlt": "Imagen gif",
+          "title": "SECRET SET",
 
-            "loaderText": "SECRET SET",
-            "gifAlt": "Imagen gif",
-            "backArrowAlt": "Flecha de retroceder",
-            "title": "Niveles",
-            "nivel1": "1",
-            "nivelLocked": "Bloqueado",
+          "loaderText": "SECRET SET",
+          "gifAlt": "Imagen gif",
+          "backArrowAlt": "Flecha de retroceder",
+          "title": "Niveles",
+          "nivel1": "1",
+          "nivelLocked": "Bloqueado",
 
-            "timer": "Tiempo: 00:00",
-            "congratulationsTitle": "¡Felicidades!",
-            "puzzleCompleted": "Has completado el rompecabezas en",
-            "nextLevel": "Siguiente Nivel",
-            "backToMap": "Volver al mapa",
-            "retry": "Reintentar",
-            "errorTitle": "¡Ups! Algo no está bien",
-            "errorMessage": "Las piezas no están en las posiciones correctas. ¡Inténtalo de nuevo!",
-            "tryAgain": "Intentar de nuevo",
-            "howToPlay": "¿Cómo Jugar?",
-            "dragPieces": "Arrastra las piezas del rompecabezas desde la parte superior hacia el tablero",
-            "timerStart": "El temporizador comenzará cuando muevas la primera pieza",
-            "getTrophies": "¡Consigue trofeos según tu tiempo!",
-            "trophy3": "3 trofeos: Menos de 30 segundos",
-            "trophy2": "2 trofeos: Menos de 60 segundos",
-            "trophy1": "1 trofeo: Completar el puzzle",
-            "placeCorrectly": "Coloca todas las piezas en su posición correcta para ganar",
-            "startPlaying": "¡Empezar a Jugar!",
+          "timer": "Tiempo: 00:00",
+          "congratulationsTitle": "¡Felicidades!",
+          "puzzleCompleted": "Has completado el rompecabezas en",
+          "nextLevel": "Siguiente Nivel",
+          "backToMap": "Volver al mapa",
+          "retry": "Reintentar",
+          "errorTitle": "¡Ups! Algo no está bien",
+          "errorMessage": "Las piezas no están en las posiciones correctas. ¡Inténtalo de nuevo!",
+          "tryAgain": "Intentar de nuevo",
+          "howToPlay": "¿Cómo Jugar?",
+          "dragPieces": "Arrastra las piezas del rompecabezas desde la parte superior hacia el tablero",
+          "timerStart": "El temporizador comenzará cuando muevas la primera pieza",
+          "getTrophies": "¡Consigue trofeos según tu tiempo!",
+          "trophy3": "3 trofeos: Menos de 30 segundos",
+          "trophy2": "2 trofeos: Menos de 60 segundos",
+          "trophy1": "1 trofeo: Completar el puzzle",
+          "placeCorrectly": "Coloca todas las piezas en su posición correcta para ganar",
+          "startPlaying": "¡Empezar a Jugar!",
 
-            "title": "Juego de Clasificación",
-            "loaderText": "SECRET SET",
-            "gifAlt": "Imagen gif",
-            "timeRemaining": "Tiempo restante:",
-            "seconds": "segundos",
-            "gameInstructions": "Instrucciones del Juego",
-            "instruction1": "Arrastra cada elemento a la categoría correcta.",
-            "instruction2": "Completa el juego antes de que el tiempo termine para ganar trofeos.",
-            "instruction3": "Si el elemento no pertenece a la categoría, recibirás un mensaje de error.",
-            "startGame": "Comenzar Juego",
-            
-            // Mensajes adicionales que podrías necesitar para el modal de completado
-            "congratulations": "¡Felicitaciones!",
-            "gameCompleted": "Has completado el juego",
-            "timeSpent": "Tiempo empleado:",
-            "nextLevel": "Siguiente Nivel",
-            "retryLevel": "Reintentar",
-            "backToMenu": "Volver al Menú",
-            "errorMessage": "¡Categoria incorrecta!",
-            "tryAgain": "Inténtalo de nuevo",
+          "title": "Juego de Clasificación",
+          "loaderText": "SECRET SET",
+          "gifAlt": "Imagen gif",
+          "timeRemaining": "Tiempo restante:",
+          "seconds": "segundos",
+          "gameInstructions": "Instrucciones del Juego",
+          "instruction1": "Arrastra cada elemento a la categoría correcta.",
+          "instruction2": "Completa el juego antes de que el tiempo termine para ganar trofeos.",
+          "instruction3": "Si el elemento no pertenece a la categoría, recibirás un mensaje de error.",
+          "startGame": "Comenzar Juego",
+          
+          // Mensajes adicionales que podrías necesitar para el modal de completado
+          "congratulations": "¡Felicitaciones!",
+          "gameCompleted": "Has completado el juego",
+          "timeSpent": "Tiempo empleado:",
+          "nextLevel": "Siguiente Nivel",
+          "retryLevel": "Reintentar",
+          "backToMenu": "Volver al Menú",
+          "errorMessage": "¡Categoria incorrecta!",
+          "tryAgain": "Inténtalo de nuevo",
 
-            "missionDescription1": "Encuentra la unión de frutas en Territorio A y B",
-            "missionOperation1": "unión",
-            "missionExpected1": ["manzana", "banana", "naranja", "pera"],
-            "missionDescription2": "Encuentra la intersección entre Territorio B y C",
-            "missionOperation2": "intersección",
-            "missionExpected2": ["banana"],
-            "missionDescription3": "Selecciona los elementos de A que no están en C",
-            "missionOperation3": "diferencia",
-            "missionExpected3": ["manzana"],
-            "territoryA": "Territorio A",
-            "territoryB": "Territorio B", 
-            "territoryC": "Territorio C",
+          "missionDescription1": "Encuentra la unión de frutas en Territorio A y B",
+          "missionOperation1": "unión",
+          "missionExpected1": ["manzana", "banana", "naranja", "pera"],
+          "missionDescription2": "Encuentra la intersección entre Territorio B y C",
+          "missionOperation2": "intersección",
+          "missionExpected2": ["banana"],
+          "missionDescription3": "Selecciona los elementos de A que no están en C",
+          "missionOperation3": "diferencia",
+          "missionExpected3": ["manzana"],
+          "territoryA": "Territorio A",
+          "territoryB": "Territorio B", 
+          "territoryC": "Territorio C",
 
 
-            "loader_text": "SECRET SET",
-            "instructions_title": "Cómo Jugar",
-            "instructions_gameplay": "Encuentra todos los pares de cartas coincidentes antes de que se acabe el tiempo",
-            "instructions_timer": "Tienes 190 segundos para completar el nivel",
-            "instructions_trophies": "Gana trofeos según el tiempo restante:\n3 trofeos: >66% del tiempo\n2 trofeos: >33% del tiempo\n1 trofeo: completado",
-            "instructions_tip": "Memoriza la ubicación de las cartas para encontrar las parejas más rápido",
-            "button_start_game": "¡Empezar a Jugar!",
-            "win_title": "¡Felicitaciones!",
-            "win_next_level": "Siguiente Nivel",
-            "win_retry": "Reintentar",
-            "win_main_menu": "Menú Principal",
-            "lose_title": "¡Tiempo agotado!",
-            "lose_retry": "Reintentar",
-            "lose_main_menu": "Menú principal",
-            "timer_label": "Tiempo",
-            "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
-            "welcome": "Bienvenido",
-            "home": "Inicio",
-            "settings": "Configuración",
-            "friends": "Amigos",
-            "profile": "Mi perfil",
-            "musicSettings": "Configuración de Música",
-            "masterVolume": "Volumen Maestro",
-            "turnOff": "Apagar Música y Efectos",
-            "turnOn": "Encender Música y Efectos",
-            "effectsVolume": "Volumen de Efectos",
-            "musicVolume": "Volumen de Música"
-            
-            
+          "loader_text": "SECRET SET",
+          "instructions_title": "Cómo Jugar",
+          "instructions_gameplay": "Encuentra todos los pares de cartas coincidentes antes de que se acabe el tiempo",
+          "instructions_timer": "Tienes 190 segundos para completar el nivel",
+          "instructions_trophies": "Gana trofeos según el tiempo restante:\n3 trofeos: >66% del tiempo\n2 trofeos: >33% del tiempo\n1 trofeo: completado",
+          "instructions_tip": "Memoriza la ubicación de las cartas para encontrar las parejas más rápido",
+          "button_start_game": "¡Empezar a Jugar!",
+          "win_title": "¡Felicitaciones!",
+          "win_next_level": "Siguiente Nivel",
+          "win_retry": "Reintentar",
+          "win_main_menu": "Menú Principal",
+          "lose_title": "¡Tiempo agotado!",
+          "lose_retry": "Reintentar",
+          "lose_main_menu": "Menú principal",
+          "timer_label": "Tiempo",
+          "footer": "© 2024 Secret Set - Todos los Derechos Reservados",
+          "welcome": "Bienvenido",
+          "home": "Inicio",
+          "settings": "Configuración",
+          "friends": "Amigos",
+          "profile": "Mi perfil",
+          "musicSettings": "Configuración de Música",
+          "masterVolume": "Volumen Maestro",
+          "turnOff": "Apagar Música y Efectos",
+          "turnOn": "Encender Música y Efectos",
+          "effectsVolume": "Volumen de Efectos",
+          "musicVolume": "Volumen de Música"
+          
         },
         "en": {
             // Main menu
@@ -410,6 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     function updateContent(lang) {
+        // Actualiza elementos con atributo data-i18n
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
@@ -417,6 +421,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // Actualiza placeholders con atributo data-i18n-placeholder
         document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
             const key = element.getAttribute('data-i18n-placeholder');
             if (translations[lang] && translations[lang][key]) {
@@ -424,17 +429,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // Dispatch un evento personalizado cuando cambia el idioma
         document.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
+        
+        // Guarda el idioma seleccionado en localStorage
         localStorage.setItem('language', lang);
+        
+        // Establece el atributo lang en el elemento html
         document.documentElement.lang = lang;
     }
 
+    // Añade un evento de cambio al selector de idioma
     document.getElementById('langSelect').addEventListener('change', function(e) {
+        // Reproduce el sonido de clic
+        if (audio) {
+            audio.play();
+        }
+
+        // Actualiza el idioma actual
         currentLang = e.target.value;
+        
+        // Actualiza el contenido con el nuevo idioma
         updateContent(currentLang);
     });
 
+    // Inicializa el contenido con el idioma actual
     updateContent(currentLang);
 });
-
-
