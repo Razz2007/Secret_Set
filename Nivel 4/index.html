@@ -9,27 +9,27 @@
 <body>
     <div class="loader-container" id="loader">
         <div class="loader"></div>
-        <div class="loader-text">SECRET SET</div>
+        <div class="loader-text data-i18n="loader_text">SECRET SET</div>
         <div class="gif">
-            <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif">
+            <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif" data-i18n-alt="loader_gif_alt">
         </div>
 </div>
 
         <div id="instructionsModal" class="modal">
             <div class="modal-content">
-                <h2>¿Cómo Jugar?</h2>
+                <h2 data-i18n="instructions_title">¿Cómo Jugar?</h2>
                 <div class="instructions-container">
                     <div class="instruction-item">
                         <span class="instruction-icon">🎯</span>
-                        <p>Resuelve problemas de conjuntos seleccionando los números correctos según la operación pedida</p>
+                        <p  data-i18n="instruction_1">Resuelve problemas de conjuntos seleccionando los números correctos según la operación pedida</p>
                     </div>
                     <div class="instruction-item">
                         <span class="instruction-icon">🔄</span>
-                        <p>Haz clic en los números para seleccionarlos o deseleccionarlos de tu respuesta</p>
+                        <p data-i18n="instruction_2">Haz clic en los números para seleccionarlos o deseleccionarlos de tu respuesta</p>
                     </div>
                     <div class="instruction-item">
                         <span class="instruction-icon">👻</span>
-                        <p>Gana trofeos por cada respuesta correcta:
+                        <p data-i18n="instruction_3">Gana trofeos por cada respuesta correcta:
                             <br>🏆 3 respuestas correctas: 3 trofeos
                             <br>🏆 2 respuestas correctas: 2 trofeos
                             <br>🏆 1 respuesta correcta: 1 trofeo
@@ -37,23 +37,23 @@
                     </div>
                     <div class="instruction-item">
                         <span class="instruction-icon">ℹ️</span>
-                        <p>Aprenderás sobre:
+                        <p data-i18n="instruction_4">Aprenderás sobre:
                             <br>• Intersección (∩)
                             <br>• Unión (∪)
                             <br>• Diferencia (-)
                         </p>
                     </div>
                 </div>
-                <button class="modal-button text-boton" onclick="closeInstructions()">¡Empezar a Jugar!</button>
+                <button class="modal-button text-boton" onclick="closeInstructions()"  data-i18n="start_game_button">¡Empezar a Jugar!</button>
             </div>
         </div>
         <div id="successModal" class="modal">
             <div class="modal-content success-modal">
-                <h2>¡Fin del Juego!</h2>
+                <h2 data-i18n="game_over_title">¡Fin del Juego!</h2>
                 <div class="modal-trophy" id="modalTrophies"></div>
                 <p id="successMessage"></p>
                 <div class="modal-buttons">
-                    <button class="modal-button menu-button text-boton" onclick="goToMenu()">Haz Terminado</button>
+                    <button class="modal-button menu-button text-boton" onclick="goToMenu()" data-i18n="finished_button">Haz Terminado</button>
                 </div>
             </div>
         </div>
@@ -61,43 +61,49 @@
         <!-- Modal de Reintento -->
         <div id="retryModal" class="modal">
             <div class="modal-content retry-modal">
-                <h2>¡Necesitas Practicar Más!</h2>
+                <h2 data-i18n="retry_title">¡Necesitas Practicar Más!</h2>
                 <div class="modal-trophy">😢</div>
-                <p>No has conseguido ningún trofeo. ¡No te rindas!</p>
+                <p data-i18n="retry_message">No has conseguido ningún trofeo. ¡No te rindas!</p>
                 <div class="modal-buttons">
-                    <button class="modal-button retry-button text-boton" onclick="restartGame()">Reintentar</button>
-                    <button class="modal-button menu-button text-boton" onclick="goToMenu()">Menú Principal</button>
+                    <button class="modal-button retry-button text-boton" onclick="restartGame()"  data-i18n="retry_button">Reintentar</button>
+                    <button class="modal-button menu-button text-boton" onclick="goToMenu()" data-i18n="menu_button">Menú Principal</button>
                 </div>
             </div>
         </div>
     
         <div class="game-container">
             <div class="stats">
-                <div class="progress">Nivel: <span id="level">1</span></div>
-                <div>Correctas: <span id="correctCount">0</span>/3</div>
+                <div class="progress">
+                    <span data-i18n="level_label">Nivel:</span> 
+                    <span id="level">1</span>
+                </div>
+                <div>
+                    <span data-i18n="correct_count_label">Correctas:</span> 
+                    <span id="correctCount">0</span>/3
+                </div>
             </div>
             <div class="question" id="question"></div>
             <div class="set-container">
                 <div class="set">
-                    <h3>Conjunto A</h3>
+                    <h3 data-i18n="set_a_label">Conjunto A</h3>
                     <div id="setA"></div>
                 </div>
                 <div class="set">
-                    <h3>Conjunto B</h3>
+                    <h3 data-i18n="set_b_label">Conjunto B</h3>
                     <div id="setB"></div>
                 </div>
             </div>
             <div id="answer" class="set">
-                <h3>Tu Respuesta</h3>
+                <h3 data-i18n="your_answer_label">Tu Respuesta</h3>
                 <div id="userAnswer"></div>
             </div>
-            <button class="text-boton" id="checkAnswer">Comprobar Respuesta</button>
+            <button class="text-boton" id="checkAnswer" data-i18n="check_answer_button">Comprobar Respuesta</button>
             <div id="feedback" class="feedback"></div>
             
             
         </div>
         <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
-        <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+        <audio id="musicaAudio" src="../musica/Efectos.mp3" preload="auto"></audio>
         <audio id="clickSound">
             <source src="../audio/click.mp3" type="audio/mp3">
         </audio>
@@ -105,5 +111,6 @@
         <script src="../js/audioManager.js"></script>
         <script src="./js/scripts.js"></script>
         <script src="./js/loader.js"></script>
+        <script src="../Menu/js/languajes4.js"></script>
     </body>
     </html>

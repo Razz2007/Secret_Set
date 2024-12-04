@@ -42,7 +42,18 @@ document.addEventListener('DOMContentLoaded', function() {
             "trophy2": "2 trofeos: Menos de 60 segundos",
             "trophy1": "1 trofeo: Completar el puzzle",
             "placeCorrectly": "Coloca todas las piezas en su posición correcta para ganar",
+            "startPlaying": "¡Empezar a Jugar!",
+            
+            "title": "Rompecabezas",
+            "loaderText": "CONJUNTO SECRETO",
+            "gifAlt": "Imagen de saludo",
+            "timer": "Tiempo: 00:00",
+            "howToPlay": "¿Cómo Jugar?",
+            "dragPieces": "Arrastra las piezas del rompecabezas desde la parte superior hacia el tablero",
+            "getTrophies": "¡Consigue trofeos según tu tiempo!",
+            "placeCorrectly": "Coloca todas las piezas en su posición correcta para ganar",
             "startPlaying": "¡Empezar a Jugar!"
+
         },
         "en": {
             // Page Title
@@ -75,6 +86,16 @@ document.addEventListener('DOMContentLoaded', function() {
             "trophy3": "3 trophies: Less than 30 seconds",
             "trophy2": "2 trophies: Less than 60 seconds",
             "trophy1": "1 trophy: Complete the puzzle",
+            "placeCorrectly": "Place all pieces in their correct position to win",
+            "startPlaying": "Start Playing!",
+
+            "title": "Puzzle",
+            "loaderText": "SECRET SET",
+            "gifAlt": "Greeting image",
+            "timer": "Time: 00:00",
+            "howToPlay": "How to Play?",
+            "dragPieces": "Drag the puzzle pieces from the top to the board",
+            "getTrophies": "Get trophies based on your time!",
             "placeCorrectly": "Place all pieces in their correct position to win",
             "startPlaying": "Start Playing!"
         }

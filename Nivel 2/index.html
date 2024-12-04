@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">Juego de Clasificación</title>
+    <title>Juego de Clasificación</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/loader.css">
 </head>
 <body>
     <div class="loader-container" id="loader">
         <div class="loader"></div>
-        <div class="loader-text" data-i18n="loaderText">SECRET SET</div>
+        <div class="loader-text">SECRET SET</div>
         <div class="gif">
-            <img class="gif" src="../imgs/holaaa-unscreen.gif" data-i18n-alt="gifAlt" alt="Imagen gif">
+            <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif">
         </div>
     </div>
 
-    <div id="timer" data-i18n="timer">Tiempo restante: <span id="time">60</span> segundos</div>
+    <div id="timer">
+        Tiempo restante: <span id="time">60</span> segundos
+    </div>
 
     <div class="containers">
     </div>
@@ -27,15 +29,14 @@
     <div id="completionModal" class="modal">
         <div class="modal-content">
         </div>
-    </div>
-
+    </div>       
     <div id="instructionsModal" class="modal">
         <div class="modal-content">
-            <h2 data-i18n="howToPlay">Instrucciones del Juego</h2>
+            <h2>Instrucciones del Juego</h2>
             <div class="instructions-container">
                 <div class="instruction-step">
                     <div class="step-number">1</div>
-                    <p data-i18n="dragPieces">Arrastra cada elemento a la categoría correcta.</p>
+                    <p>Arrastra cada elemento a la categoría correcta.</p>
                 </div>
                 <div class="instruction-step">
                     <div class="step-number">2</div>
@@ -46,20 +47,18 @@
                     <p>Si el elemento no pertenece a la categoría, recibirás un mensaje de error.</p>
                 </div>
             </div>
-            <button class="start-button text-boton" onclick="closeInstructionsModal()" data-i18n="startPlaying">Comenzar Juego</button>
+            <button class="start-button text-boton" onclick="closeInstructionsModal()">Comenzar Juego</button>
         </div>
-    </div>
-
+    </div>   
     <audio id="efectoAudio" src="../musica/Fondo.mp3" preload="auto"></audio>
-    <audio id="musicaAudio" src="../musica/" preload="auto"></audio>
+    <audio id="musicaAudio" src="../musica/Efectos.mp3" preload="auto"></audio>
     <audio id="clickSound">
         <source src="../audio/click.mp3" type="audio/mp3">
     </audio>
-
     <script src="../js/sonido.js"></script>
     <script src="../js/audioManager.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/loader.js"></script>
-    <script src="../js/translations.js"></script>
+    <script src="../Menu/js/languajes1 copy 2.js"></script>
 </body>
 </html>

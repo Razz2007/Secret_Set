@@ -1,3 +1,4 @@
+// Variables globales
 let currentLevel = 0;
 let selectedElements = new Set();
 let correctAnswers = 0;
@@ -19,8 +20,8 @@ async function loadGameData() {
     try {
         const response = await fetch('./json/config.json');
         gameData = await response.json();
-        initGame(); // Primero inicializamos el juego
-        showInstructions(); // Luego mostramos las instrucciones
+        initGame(); // Inicializar el juego
+        showInstructions(); // Mostrar las instrucciones al inicio
     } catch (error) {
         console.error('Error cargando los datos del juego:', error);
     }
@@ -85,14 +86,14 @@ function showSuccessModal() {
     
     // Mostrar trofeos ganados
     let trophyDisplay = '';
-    for(let i = 0; i < correctAnswers; i++) {
+    for (let i = 0; i < correctAnswers; i++) {
         trophyDisplay += '🏆';
     }
     trophiesElement.textContent = trophyDisplay;
     
     // Mensaje personalizado según cantidad de trofeos
     let message = '';
-    switch(correctAnswers) {
+    switch (correctAnswers) {
         case 3:
             message = '¡Perfecto! Has conseguido todos los trofeos.';
             break;
@@ -165,8 +166,7 @@ function restartGame() {
     showInstructions(); // Luego mostramos las instrucciones
 }
 
-// Funciones de navegación
-
+// Función para ir al menú principal
 function goToMenu() {
     window.location.href = '../mapas/mapa4.html';
 }
