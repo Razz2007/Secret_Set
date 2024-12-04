@@ -84,20 +84,21 @@
             <p><span data-i18n="puzzleCompleted">Has completado el rompecabezas en</span> <span id="finalTime">00:00</span></p>
             <div class="trophies" id="trophies"></div>
             <div class="modal-buttons text-boton">
-                <button onclick="nextLevel()" data-i18n="nextLevel" class="text-boton">Siguiente Nivel</button>
+                <button class="text-boton" onclick="nextLevel()" data-i18n="nextLevel">Siguiente Nivel</button>
                 <button onclick="mainMenu()" data-i18n="backToMap" class="text-boton">Volver al mapa</button>
-                <button class="text-boton" onclick="retry()" class="text-boton" data-i18n="retry" class="text-boton">Reintentar</button>
+                <button class="text-boton" onclick="retry()" data-i18n="retry">Reintentar</button>
+
             </div>
         </div>
     </div>
     
     <!-- Modal de Error -->
     <div id="errorModal" class="modal" style="display: none;">
-        <div class="modal-content">
+        <div class="modal-content text-boton">
             <h2 data-i18n="errorTitle">¡Ups! Algo no está bien</h2>
             <p data-i18n="errorMessage">Las piezas no están en las posiciones correctas. ¡Inténtalo de nuevo!</p>
-            <div class="modal-buttons">
-                <button onclick="retry()" data-i18n="tryAgain">Intentar de nuevo</button>
+            <div class="modal-buttons text-boton">
+                <button onclick="retry()" data-i18n="tryAgain" class="text-boton">Intentar de nuevo</button>
             </div>
         </div>
     </div>
