@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "set_a_label": "Conjunto A",
             "set_b_label": "Conjunto B",
             "your_answer_label": "Tu Respuesta",
-            "check_answer_button": "Comprobar Respuesta"
+            "check_answer_button": "Comprobar Respuesta",
+              "feedback_correct": "¡Correcto! ",
+        "feedback_incorrect": "Incorrecto. "
         },
         "en": {
             "title": "Set Game",
@@ -44,7 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "set_a_label": "Set A",
             "set_b_label": "Set B",
             "your_answer_label": "Your Answer",
-            "check_answer_button": "Check Answer"
+            "check_answer_button": "Check Answer",
+            "feedback_correct": "Correct! ",
+        "feedback_incorrect": "Incorrect. "
         }
     };
 

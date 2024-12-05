@@ -79,6 +79,7 @@ function updateUserAnswer() {
 }
 
 // Función para mostrar el modal de éxito
+// Función para mostrar el modal de éxito
 function showSuccessModal() {
     const modal = document.getElementById('successModal');
     const trophiesElement = document.getElementById('modalTrophies');
@@ -90,18 +91,27 @@ function showSuccessModal() {
         trophyDisplay += '🏆';
     }
     trophiesElement.textContent = trophyDisplay;
-    
+
+    // Determinar idioma actual
+    const currentLang = document.getElementById('langSelect').value;
+
     // Mensaje personalizado según cantidad de trofeos
     let message = '';
     switch (correctAnswers) {
         case 3:
-            message = '¡Perfecto! Has conseguido todos los trofeos.';
+            message = currentLang === 'es' 
+                ? '¡Perfecto! Has conseguido todos los trofeos.' 
+                : 'Perfect! You have earned all the trophies.';
             break;
         case 2:
-            message = '¡Muy bien! Has conseguido dos trofeos.';
+            message = currentLang === 'es' 
+                ? '¡Muy bien! Has conseguido dos trofeos.' 
+                : 'Great! You have earned two trophies.';
             break;
         case 1:
-            message = '¡Bien! Has conseguido un trofeo.';
+            message = currentLang === 'es' 
+                ? '¡Bien! Has conseguido un trofeo.' 
+                : 'Good! You have earned one trophy.';
             break;
     }
     messageElement.textContent = message;
@@ -122,8 +132,6 @@ function hideAllModals() {
         modal.style.display = 'none';
     });
 }
-
-// Función principal para verificar respuesta
 function checkAnswer() {
     const level = gameData.levels[currentLevel];
     const userAnswer = Array.from(selectedElements).sort((a, b) => a - b);
@@ -135,12 +143,14 @@ function checkAnswer() {
     }
     
     const feedback = document.getElementById('feedback');
+    const currentLang = document.getElementById('langSelect').value;
+    
     feedback.textContent = correct ? 
-        '¡Correcto! ' + level.explanation :
-        'Incorrecto. ' + level.explanation;
+        (currentLang === 'es' ? '¡Correcto! ' : 'Correct! ') + level.explanation :
+        (currentLang === 'es' ? 'Incorrecto. ' : 'Incorrect. ') + level.explanation;
+    
     feedback.className = `feedback ${correct ? 'correct' : 'incorrect'}`;
     
-    // Esperar y pasar al siguiente nivel
     setTimeout(() => {
         if (currentLevel < gameData.levels.length - 1) {
             currentLevel++;
@@ -155,7 +165,6 @@ function checkAnswer() {
         }
     }, 2000);
 }
-
 // Función para reiniciar el juego
 function restartGame() {
     currentLevel = 0;
