@@ -172,3 +172,7 @@ function restartGame() {
 
 // Evento para cargar los datos al iniciar
 document.addEventListener('DOMContentLoaded', loadGameData);
+// Función para ir al menú principal
+function goToMenu() {
+    window.location.href = '../mapas/mapa4.html';
+}
