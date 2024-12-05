@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const translations = {
         "es": {
             "title": "Juego de Conjuntos",
@@ -22,8 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
             "set_b_label": "Conjunto B",
             "your_answer_label": "Tu Respuesta",
             "check_answer_button": "Comprobar Respuesta",
-              "feedback_correct": "¡Correcto! ",
-        "feedback_incorrect": "Incorrecto. "
+            "feedback_correct": "¡Correcto! ",
+            "feedback_incorrect": "Incorrecto. ",
+            "level_1_question": "Selecciona los elementos en la intersección A ∩ B",
+            "level_1_explanation": "La intersección contiene elementos que están en ambos conjuntos",
+            "level_2_question": "Selecciona los elementos en la unión A ∪ B",
+            "level_2_explanation": "La unión contiene todos los elementos que están en A o B",
+            "level_3_question": "Selecciona los elementos en A pero no en B (A - B)",
+            "level_3_explanation": "La diferencia A - B contiene elementos que están en A pero no en B"
         },
         "en": {
             "title": "Set Game",
@@ -48,7 +54,13 @@ document.addEventListener('DOMContentLoaded', function() {
             "your_answer_label": "Your Answer",
             "check_answer_button": "Check Answer",
             "feedback_correct": "Correct! ",
-        "feedback_incorrect": "Incorrect. "
+            "feedback_incorrect": "Incorrect. ",
+            "level_1_question": "Select the elements in the intersection A ∩ B",
+            "level_1_explanation": "The intersection contains elements that are in both sets",
+            "level_2_question": "Select the elements in the union A ∪ B",
+            "level_2_explanation": "The union contains all elements that are in A or B",
+            "level_3_question": "Select the elements in A but not in B (A - B)",
+            "level_3_explanation": "The difference A - B contains elements that are in A but not in B"
         }
     };
 
@@ -67,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('langSelect').value = currentLang;
 
     function updateContent(lang) {
-        // Update text content
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
@@ -75,37 +86,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Update alt attributes
-        document.querySelectorAll('[data-i18n-alt]').forEach(element => {
-            const key = element.getAttribute('data-i18n-alt');
-            if (translations[lang] && translations[lang][key]) {
-                element.alt = translations[lang][key];
-            }
-        });
-
-        // Update page title
         document.title = translations[lang]['title'];
-
-        // Save language preference
         localStorage.setItem('language', lang);
         document.documentElement.lang = lang;
 
-        // Dispatch language change event
         document.dispatchEvent(new CustomEvent('languageChanged', {
             detail: { language: lang }
         }));
     }
 
-    // Language change event listener
-    document.getElementById('langSelect').addEventListener('change', function(e) {
+    document.getElementById('langSelect').addEventListener('change', function (e) {
         updateContent(e.target.value);
     });
 
-    // Initial content update
     updateContent(currentLang);
 });
-
-
 
 
 

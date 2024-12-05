@@ -138,17 +138,28 @@ body, html {
     margin-right: 10px;
 }
 
+
+
+
 .arrow-button {
-    background-color: #fff;
+    background: linear-gradient(45deg,  #fff,  #efe9e9);
     border: none;
-    padding: 12px;
+    padding: 15px;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s ease;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .arrow-button:hover {
-    background-color: #ddd;
+    transform: scale(1.1) rotate(360deg);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-button i {
+    color: black;
+    font-size: 1.5rem;
 }
 
 /* Estilo para el footer */

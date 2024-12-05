@@ -4,22 +4,15 @@ let selectedElements = new Set();
 let correctAnswers = 0;
 let gameData = null;
 
-// Función para mostrar las instrucciones
-function showInstructions() {
-    document.getElementById('instructionsModal').style.display = 'flex';
-}
-
-// Función para cerrar las instrucciones
-function closeInstructions() {
-    document.getElementById('instructionsModal').style.display = 'none';
-    initLevel(); // Iniciar el primer nivel después de cerrar las instrucciones
-}
-
-// Función para cargar los datos del juego
+// Función para cargar datos del juego
 async function loadGameData() {
     try {
         const response = await fetch('./json/config.json');
-        gameData = await response.json();
+        const data = await response.json();
+
+        const currentLang = localStorage.getItem('language') || 'es'; // Idioma predeterminado: español
+        gameData = data[currentLang];
+
         initGame(); // Inicializar el juego
         showInstructions(); // Mostrar las instrucciones al inicio
     } catch (error) {
@@ -27,40 +20,52 @@ async function loadGameData() {
     }
 }
 
-// Función para inicializar el nivel
+// Función para inicializar el juego
+function initGame() {
+    document.getElementById('checkAnswer').addEventListener('click', checkAnswer);
+    document.getElementById('langSelect').addEventListener('change', changeLanguage);
+    initLevel(); // Iniciar el primer nivel
+}
+
+// Función para cambiar el idioma
+function changeLanguage(e) {
+    const newLang = e.target.value;
+    localStorage.setItem('language', newLang); // Guardar el idioma seleccionado
+    loadGameData(); // Recargar datos del juego
+}
+
+// Función para inicializar un nivel
 function initLevel() {
     if (!gameData || !gameData.levels || !gameData.levels[currentLevel]) {
-        console.error('Datos del juego no disponibles');
+        console.error('Datos del nivel no disponibles');
         return;
     }
 
     const level = gameData.levels[currentLevel];
-    
+
     // Actualizar interfaz
     document.getElementById('level').textContent = currentLevel + 1;
     document.getElementById('question').textContent = level.question;
     document.getElementById('feedback').textContent = '';
     document.getElementById('feedback').className = 'feedback';
     document.getElementById('correctCount').textContent = correctAnswers;
-    
+
     // Inicializar conjuntos
     document.getElementById('setA').innerHTML = level.setA
         .map(num => `<span class="element" onclick="toggleElement(${num})">${num}</span>`)
         .join('');
-    
     document.getElementById('setB').innerHTML = level.setB
         .map(num => `<span class="element" onclick="toggleElement(${num})">${num}</span>`)
         .join('');
-    
+
     // Limpiar respuesta del usuario
     document.getElementById('userAnswer').innerHTML = '';
     selectedElements.clear();
 
-    // Ocultar modales y resultados
-    hideAllModals();
+    hideAllModals(); // Ocultar cualquier modal activo
 }
 
-// Función para alternar la selección de elementos
+// Función para alternar la selección de un elemento
 function toggleElement(num) {
     if (selectedElements.has(num)) {
         selectedElements.delete(num);
@@ -70,7 +75,7 @@ function toggleElement(num) {
     updateUserAnswer();
 }
 
-// Función para actualizar la visualización de la respuesta del usuario
+// Función para actualizar la visualización de la respuesta
 function updateUserAnswer() {
     const elements = Array.from(selectedElements).sort((a, b) => a - b);
     document.getElementById('userAnswer').innerHTML = elements
@@ -78,24 +83,44 @@ function updateUserAnswer() {
         .join('');
 }
 
-// Función para mostrar el modal de éxito
+// Función para verificar la respuesta
+function checkAnswer() {
+    const level = gameData.levels[currentLevel];
+    const userAnswer = Array.from(selectedElements).sort((a, b) => a - b);
+    const correct = JSON.stringify(userAnswer) === JSON.stringify(level.correctAnswer.sort((a, b) => a - b));
+
+    if (correct) {
+        correctAnswers++;
+        document.getElementById('correctCount').textContent = correctAnswers;
+    }
+
+    const feedback = document.getElementById('feedback');
+    const currentLang = localStorage.getItem('language') || 'es';
+
+    feedback.textContent = correct
+        ? (currentLang === 'es' ? '¡Correcto! ' : 'Correct! ') + level.explanation
+        : (currentLang === 'es' ? 'Incorrecto. ' : 'Incorrect. ') + level.explanation;
+
+    feedback.className = `feedback ${correct ? 'correct' : 'incorrect'}`;
+
+    setTimeout(() => {
+        if (currentLevel < gameData.levels.length - 1) {
+            currentLevel++;
+            initLevel();
+        } else {
+            // Mostrar modal de éxito o reintento según el resultado
+            correctAnswers > 0 ? showSuccessModal() : showRetryModal();
+        }
+    }, 2000);
+}
+
 // Función para mostrar el modal de éxito
 function showSuccessModal() {
     const modal = document.getElementById('successModal');
-    const trophiesElement = document.getElementById('modalTrophies');
     const messageElement = document.getElementById('successMessage');
-    
-    // Mostrar trofeos ganados
-    let trophyDisplay = '';
-    for (let i = 0; i < correctAnswers; i++) {
-        trophyDisplay += '🏆';
-    }
-    trophiesElement.textContent = trophyDisplay;
+    const currentLang = localStorage.getItem('language') || 'es';
 
-    // Determinar idioma actual
-    const currentLang = document.getElementById('langSelect').value;
-
-    // Mensaje personalizado según cantidad de trofeos
+    // Mostrar mensaje según la cantidad de trofeos obtenidos
     let message = '';
     switch (correctAnswers) {
         case 3:
@@ -113,79 +138,37 @@ function showSuccessModal() {
                 ? '¡Bien! Has conseguido un trofeo.' 
                 : 'Good! You have earned one trophy.';
             break;
+        default:
+            message = currentLang === 'es' 
+                ? '¡Inténtalo de nuevo!' 
+                : 'Try again!';
+            break;
     }
+
     messageElement.textContent = message;
-    
     modal.style.display = 'flex';
 }
 
 // Función para mostrar el modal de reintento
 function showRetryModal() {
-    const modal = document.getElementById('retryModal');
-    modal.style.display = 'flex';
+    document.getElementById('retryModal').style.display = 'flex';
 }
 
 // Función para ocultar todos los modales
 function hideAllModals() {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
+    document.querySelectorAll('.modal').forEach(modal => {
         modal.style.display = 'none';
     });
 }
-function checkAnswer() {
-    const level = gameData.levels[currentLevel];
-    const userAnswer = Array.from(selectedElements).sort((a, b) => a - b);
-    const correct = JSON.stringify(userAnswer) === JSON.stringify(level.correctAnswer.sort((a, b) => a - b));
-    
-    if (correct) {
-        correctAnswers++;
-        document.getElementById('correctCount').textContent = correctAnswers;
-    }
-    
-    const feedback = document.getElementById('feedback');
-    const currentLang = document.getElementById('langSelect').value;
-    
-    feedback.textContent = correct ? 
-        (currentLang === 'es' ? '¡Correcto! ' : 'Correct! ') + level.explanation :
-        (currentLang === 'es' ? 'Incorrecto. ' : 'Incorrect. ') + level.explanation;
-    
-    feedback.className = `feedback ${correct ? 'correct' : 'incorrect'}`;
-    
-    setTimeout(() => {
-        if (currentLevel < gameData.levels.length - 1) {
-            currentLevel++;
-            initLevel();
-        } else {
-            // Juego terminado
-            if (correctAnswers > 0) {
-                showSuccessModal();
-            } else {
-                showRetryModal();
-            }
-        }
-    }, 2000);
-}
-// Función para reiniciar el juego
+
+// Reiniciar el juego
 function restartGame() {
     currentLevel = 0;
     correctAnswers = 0;
     selectedElements.clear();
     hideAllModals();
-    initLevel(); // Primero iniciamos el nivel
-    showInstructions(); // Luego mostramos las instrucciones
+    showInstructions();
 }
 
-// Función para ir al menú principal
-function goToMenu() {
-    window.location.href = '../mapas/mapa4.html';
-}
-
-// Inicialización del juego
-function initGame() {
-    // Agregar event listeners
-    document.getElementById('checkAnswer').addEventListener('click', checkAnswer);
-    // No llamamos a initLevel() aquí porque lo haremos después de cerrar las instrucciones
-}
-
-// Cargar el juego cuando el documento esté listo
+// Evento para cargar los datos al iniciar
 document.addEventListener('DOMContentLoaded', loadGameData);
