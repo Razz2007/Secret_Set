@@ -170,9 +170,176 @@ function restartGame() {
     showInstructions();
 }
 
-// Evento para cargar los datos al iniciar
-document.addEventListener('DOMContentLoaded', loadGameData);
-// Función para ir al menú principal
-function goToMenu() {
-    window.location.href = '../mapas/mapa4.html';
+function showCompletionModal() {
+    const modal = document.getElementById("completionModal");
+    modal.style.display = "block";
+
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    const trophies = getTrophies(timeLeft);
+
+    const currentLang = localStorage.getItem('language') || 'es';
+    const translations = {
+        es: {
+            congratulations: "¡FELICIDADES!",
+            completed: "Has completado el rompecabezas en",
+            nextLevel: "SIGUIENTE NIVEL",
+            mainMenu: "MENÚ PRINCIPAL",
+            retry: "REINTENTAR"
+        },
+        en: {
+            congratulations: "CONGRATULATIONS!",
+            completed: "You completed the puzzle in",
+            nextLevel: "NEXT LEVEL",
+            mainMenu: "MAIN MENU",
+            retry: "RETRY"
+        }
+    };
+
+    const modalContent = modal.querySelector('.modal-content');
+    modalContent.innerHTML = `
+        <h2>${translations[currentLang].congratulations}</h2>
+        <div class="completion-time">
+            ${translations[currentLang].completed}<br>
+            ${formattedTime}
+        </div>
+        <div class="trophies-container">
+            ${trophies}
+        </div>
+        <button class="text-boton" onclick="nextLevel()" data-i18n="nextLevel">${translations[currentLang].nextLevel}</button>
+        <button class="text-boton" onclick="mainMenu()" data-i18n="mainMenu">${translations[currentLang].mainMenu}</button>
+        <button class="text-boton" onclick="retry()" data-i18n="retry">${translations[currentLang].retry}</button>
+    `;
+
+// Delegar eventos de clic a todos los botones con clase text-boton
+document.body.addEventListener("click", function(event) {
+    if (event.target && event.target.matches(".text-boton")) {
+        audio.play(); // Reproduce el sonido al hacer clic en un botón
+    }
+});
+
+}
+
+// Generar los trofeos según el tiempo restante
+function getTrophies(timeLeft) {
+    const { trophyLevels } = gameData.gameSettings;
+
+    let trophyHTML = '';
+
+    if (timeLeft >= trophyLevels.gold.minTime) {
+        trophyHTML = `
+            <div class="trophy trophy-gold">${trophyLevels.gold.emoji}</div>
+            <div class="trophy trophy-gold">${trophyLevels.gold.emoji}</div>
+            <div class="trophy trophy-gold">${trophyLevels.gold.emoji}</div>
+        `;
+    } else if (timeLeft >= trophyLevels.silver.minTime) {
+        trophyHTML = `
+            <div class="trophy trophy-silver">${trophyLevels.silver.emoji}</div>
+            <div class="trophy trophy-silver">${trophyLevels.silver.emoji}</div>
+        `;
+    } else if (timeLeft >= trophyLevels.bronze.minTime) {
+        trophyHTML = `
+            <div class="trophy trophy-bronze">${trophyLevels.bronze.emoji}</div>
+        `;
+    }
+
+    return trophyHTML;
+}
+
+// Funciones para cambiar de nivel o menú
+function nextLevel() {
+    window.location.href = "../Nivel 3/index.html";
+}
+
+function mainMenu() {
+    closeModal();
+    window.location.href = "../mapas/mapa3.html"; // Ruta al menú principal
+}
+
+function retry() {
+    closeModal();
+    resetGame();
+}
+
+function closeModal() {
+    document.getElementById("completionModal").style.display = "none";
+}
+
+// Restablecer botellas
+function resetBottles() {
+    const bottles = document.querySelectorAll('.bottle');
+    const itemsContainer = document.querySelector('.items');
+
+    bottles.forEach(bottle => {
+        const items = bottle.querySelectorAll('.item');
+        items.forEach(item => {
+            itemsContainer.appendChild(item);
+        });
+    });
+}
+
+// Mezclar elementos
+function shuffleItems() {
+    const itemsContainer = document.querySelector('.items');
+    const items = Array.from(itemsContainer.children);
+
+    for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+    }
+
+    items.forEach(item => {
+        itemsContainer.appendChild(item);
+    });
+}
+
+// Cerrar el modal de instrucciones
+function closeInstructionsModal() {
+    document.getElementById("instructionsModal").style.display = "none";
+}
+
+// Configuración inicial al cargar la página
+window.onload = function() {
+    const savedLang = localStorage.getItem('language') || 'es';
+    document.getElementById('langSelect').value = savedLang;
+    loadGameData(savedLang);
+};
+
+
+
+function nextLevel() {
+    closeModal('completionModal');
+    window.location.href = '../Nivel 5/index.html';
+}
+
+
+// Función para el botón "Volver al Mapa"
+function mainMenu() {
+    closeModal();  // Cierra el modal
+    window.location.href = '../mapas/mapa5.html';  // Redirige al menú principal (ajusta la ruta según sea necesario)
+}
+
+// Función para el botón "Reintentar"
+function retry() {
+    closeModal();  // Cierra el modal de error o éxito
+    restartGame();  // Reinicia el juego
+}
+
+// Función para reiniciar el juego (sin recargar la página)
+function restartGame() {
+    currentLevel = 0;  // Vuelve al primer nivel
+    correctAnswers = 0;  // Resetea el número de respuestas correctas
+    selectedElements.clear();  // Limpia la selección de elementos
+    initLevel();  // Inicializa el primer nivel
+    hideAllModals();  // Asegúrate de ocultar cualquier modal activo
+    showInstructions();  // Muestra las instrucciones nuevamente
+}
+
+// Función para cerrar los modales
+function closeModal() {
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.style.display = 'none';  // Oculta todos los modales
+    });
 }
