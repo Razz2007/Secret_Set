@@ -11,20 +11,17 @@
   --gradient-2: linear-gradient(45deg, #FFD700, #FF6B35);
 }
 
-body {
-  font-family: 'Space Grotesk', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 20px;
-  min-height: 100vh;
-  background-image: 
-    linear-gradient(rgba(44, 42, 42, 0.9), rgba(44, 42, 42, 0.9)),
-    url('../images/WhatsApp\ Image\ 2024-11-22\ at\ 6.00.00\ PM.jpeg');
+
+
+  body {
+    background-image: url('../images/WhatsApp\ Image\ 2024-11-22\ at\ 6.00.00\ PM.jpeg'); 
   background-size: cover;
   background-position: center;
+  font-family: 'Space Grotesk', sans-serif;
   background-attachment: fixed;
 }
+
+
 
 @keyframes pulse {
   0% { transform: scale(1); }
