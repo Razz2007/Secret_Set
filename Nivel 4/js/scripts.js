@@ -115,37 +115,44 @@ function checkAnswer() {
 }
 
 // Función para mostrar el modal de éxito
+// Función para mostrar el modal de éxito
 function showSuccessModal() {
     const modal = document.getElementById('successModal');
     const messageElement = document.getElementById('successMessage');
     const currentLang = localStorage.getItem('language') || 'es';
 
-    // Mostrar mensaje según la cantidad de trofeos obtenidos
+    // Actualizar el mensaje según la cantidad de respuestas correctas
     let message = '';
     switch (correctAnswers) {
         case 3:
-            message = currentLang === 'es' 
-                ? '¡Perfecto! Has conseguido todos los trofeos.' 
+            message = currentLang === 'es'
+                ? '¡Perfecto! Has conseguido todos los trofeos.'
                 : 'Perfect! You have earned all the trophies.';
             break;
         case 2:
-            message = currentLang === 'es' 
-                ? '¡Muy bien! Has conseguido dos trofeos.' 
+            message = currentLang === 'es'
+                ? '¡Muy bien! Has conseguido dos trofeos.'
                 : 'Great! You have earned two trophies.';
             break;
         case 1:
-            message = currentLang === 'es' 
-                ? '¡Bien! Has conseguido un trofeo.' 
+            message = currentLang === 'es'
+                ? '¡Bien! Has conseguido un trofeo.'
                 : 'Good! You have earned one trophy.';
             break;
         default:
-            message = currentLang === 'es' 
-                ? '¡Inténtalo de nuevo!' 
+            message = currentLang === 'es'
+                ? '¡Inténtalo de nuevo!'
                 : 'Try again!';
             break;
     }
-
     messageElement.textContent = message;
+
+    // Mostrar los trofeos correspondientes
+    const trophies = document.querySelectorAll('.modal-trophy .trophy');
+    trophies.forEach((trophy, index) => {
+        trophy.style.display = index < correctAnswers ? 'inline-block' : 'none';
+    });
+
     modal.style.display = 'flex';
 }
 
@@ -169,6 +176,13 @@ function restartGame() {
     hideAllModals();
     showInstructions();
 }
+// Función para avanzar al siguiente nivel
+function nextLevel() {
+    hideAllModals(); // Ocultar cualquier modal activo
+    const nextLevelURL = '../Nivel 5/index.html'; // Cambiar según la estructura de niveles
+    window.location.href = nextLevelURL;
+}
+
 
 function showCompletionModal() {
     const modal = document.getElementById("completionModal");

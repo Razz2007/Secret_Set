@@ -67,17 +67,17 @@
         <div id="successModal" class="modal">
             <div class="modal-content success-modal">
                 <h2 data-i18n="game_over_title">¡Fin del Juego!</h2>
-                <div class="modal-trophy" id="modalTrophies"></div>
+                <div class="modal-trophy" id="modalTrophies">
+                    <span class="trophy" id="trophy1">🏆</span>
+                    <span class="trophy" id="trophy2">🏆</span>
+                    <span class="trophy" id="trophy3">🏆</span>
+                </div>
                 <p id="successMessage"></p>
                 <div class="modal-buttons">
-                    <button class="text-boton" onclick="nextLevel()" data-i18n="nextLevel">Siguiente Nivel</button>
-                    <button onclick="mainMenu()" data-i18n="backToMap" class="text-boton">Volver al mapa</button>
-                    <button class="text-boton" onclick="retry()" data-i18n="retry">Reintentar</button>
-                    
+                    <button class="modal-button menu-button text-boton" onclick="goToMenu()" data-i18n="finished_button">Haz Terminado</button>
                 </div>
             </div>
         </div>
-    
         <!-- Modal de Reintento -->
         <div id="retryModal" class="modal">
             <div class="modal-content retry-modal">
