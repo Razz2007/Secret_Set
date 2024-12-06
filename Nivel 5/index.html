@@ -8,7 +8,25 @@
         <link rel="stylesheet" href="./css/loader.css">
     </head>
     <body>
+        <style>
+.langSelect {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    opacity: 0; /* Esto asegura que el selector esté invisible */
+    pointer-events: none; /* Esto desactiva cualquier interacción con el selector */
+}
 
+.langSelect {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+        </style>
+        
         <div class="loader-container" id="loader">
             <div class="loader"></div>
             <div class="loader-text" data-i18n="loader_text">SECRET SET</div>

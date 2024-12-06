@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const languageSelector = document.createElement('select');
     languageSelector.id = 'langSelect';
+    languageSelector.classList.add('langSelect'); // Agregar la clase para ocultar
     languageSelector.innerHTML = 
         `<option value="es">Español</option>
         <option value="en">English</option>`;
@@ -36,28 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentLang = localStorage.getItem('language') || 'es';
     languageSelector.value = currentLang;
 
-    // Global functions for HTML onclick events
-    window.returnToMenu = function() {
-        window.location.href = '../mapas/mapa5.html';
-    }
+    // Resto del código...
 
-    window.restartGame = function() {
-        // Reset game variables
-        selectedCards = [];
-        matchedPairs = [];
-        timeLeft = 180;
-        
-        // Hide modals
-        document.getElementById('trophyModal').style.display = 'none';
-        document.getElementById('gameOverModal').style.display = 'none';
-        
-        // Clear messages
-        document.getElementById('message').textContent = '';
-        
-        // Recreate game board
-        createGameBoard();
-    }
+    updateContent(currentLang);
 
+    // Función que actualiza el contenido según el idioma seleccionado
     function updateContent(lang) {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
@@ -81,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('language', lang);
         document.title = translations[lang].title;
     }
-
     languageSelector.addEventListener('change', function () {
         currentLang = this.value;
         updateContent(currentLang);
