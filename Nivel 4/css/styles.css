@@ -244,9 +244,8 @@ button:hover::after {
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
-
-.trophy.earned {
-  animation: trophyEarned 1s ease-out;
+.modal-trophy{  
+  font-size: 2.5em;
 }
 
 @keyframes trophyEarned {

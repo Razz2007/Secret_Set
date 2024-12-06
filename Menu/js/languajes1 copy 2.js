@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
             "startPlaying": "¡Empezar a Jugar!",
             
             "title": "Rompecabezas",
-            "loaderText": "CONJUNTO SECRETO",
             "gifAlt": "Imagen de saludo",
             "timer": "Tiempo: 00:00",
             "howToPlay": "¿Cómo Jugar?",

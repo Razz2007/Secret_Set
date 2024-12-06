@@ -18,7 +18,7 @@
     </video>
     
     <header>
-        <a href="../Index/inicio.php"><h2 class="logo">SecretSet</h2></a>
+        <a href="./login y registro.php"><h2 class="logo">SecretSet</h2></a>
         <nav class="navigation">
             <a href="#" id="openModalQuienes">¿Quiénes Somos?</a>
             <a href="#" id="openModalJuego">¿De qué se trata el juego?</a>
@@ -90,9 +90,6 @@
                    <label>Contraseña</label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">
-                    Recuerdame</label>
-                    <a href="#">Olvidaste tu contraseña?</a>
                 </div>
                 <button type="submit" class="btn" name="login" >Entrar</button>
                 <div class="login-register">
