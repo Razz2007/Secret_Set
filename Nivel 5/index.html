@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Juego de Conjuntos</title>
+ <link rel="stylesheet" href="./css/styles.css">
+ <link rel="stylesheet" href="./css/loader.css">
+</head>
+<body>
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+        <div class="loader-text" data-i18n="loader_text">SECRET SET</div>
+        <div class="gif">
+            <img class="gif" src="../imgs/holaaa-unscreen.gif" alt="Imagen gif" data-i18n-alt="loader_gif_alt">
+        </div>
+</div>
+    <div class="game-container">
+        <div class="game-header">
+            <div id="timer">Tiempo: 03:00</div>
+        </div>
+        <h1>Maestro de Conexiones</h1>
+        <div id="message"></div>
+        <div class="game-board" id="gameBoard"></div>
+    </div>
+
+    <div id="trophyModal" class="modal">
+        <div class="modal-content">
+            <h2>¡Felicidades!</h2>
+            <div class="trophy-container">
+                <div class="trophy">🏆</div>
+                <div class="trophy">🏆</div>
+                <div class="trophy">🏆</div>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn btn-retry" onclick="restartGame()">Reintentar</button>
+                <button class="modal-btn btn-menu" onclick="returnToMenu()">Menú Principal</button>
+            </div>
+        </div>
+    </div>
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2>¡Tiempo Agotado!</h2>
+            <div class="modal-buttons">
+                <button class="modal-btn btn-retry" onclick="restartGame()">Reintentar</button>
+                <button class="modal-btn btn-menu" onclick="returnToMenu()">Menú Principal</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/sonido.js"></script>
+    <script src="../js/audioManager.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/loader.js"></script>
+    <script src="../Menu/js/languajes4.js"></script>
+</body>
+</html>
